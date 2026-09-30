@@ -251,7 +251,7 @@ export const siteContent: SiteContent = {
         { label: 'Representative of Amnesty International India — People’s Budget Programme, New Delhi', year: '2007' },
         // TODO: confirm trust name spelling ("Al Aman" in client notes)
         { label: 'Founder & Secretary — Al Aman Educational and Charitable Trust and Al Ameen Public School (CBSE), Pathanapuram', year: '' },
-        { label: 'National Vice President — National Lawyers Campaign for Judicial Transparency and Reforms', year: '' },
+        { label: 'Former National Vice President — National Lawyers Campaign for Judicial Transparency and Reforms', year: '' },
         { label: 'Member — United Nations Millennium Campaign · International Member — Amnesty International', year: '' },
         { label: 'Former Regional Project Manager & Additional Cabinet Secretary — Lions Clubs International, District 324E-1', year: '' },
       ],
