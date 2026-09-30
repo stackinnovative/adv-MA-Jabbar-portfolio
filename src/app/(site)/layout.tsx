@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Noto_Serif_Malayalam, Playfair_Display, Source_Sans_3 } from 'next/font/google';
-import { DISCLAIMER_KEY } from '@/lib/disclaimer';
+import { DISCLAIMER_KEY, SHOW_ENTRY_DISCLAIMER } from '@/lib/disclaimer';
 import { getSiteContent } from '@/lib/content';
 import './globals.css';
 
@@ -53,7 +53,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       suppressHydrationWarning
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: disclaimerScript }} />
+        {SHOW_ENTRY_DISCLAIMER && <script dangerouslySetInnerHTML={{ __html: disclaimerScript }} />}
       </head>
       <body>{children}</body>
     </html>

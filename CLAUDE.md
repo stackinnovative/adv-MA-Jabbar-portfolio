@@ -46,7 +46,9 @@ Indian advocates may not advertise or solicit work. The site may only state fact
 - NO self-praise words: "best", "top", "leading", "expert", "No. 1", "guaranteed", "rich experience".
 - NO pop-ups/CTAs like "Free consultation", "Hire now", "Limited offer".
 - NO Ashoka emblem / State Emblem of India / "Satyameva Jayate" (illegal for private use).
-- KEEP the entry disclaimer modal (must show on first visit, stored in localStorage key `ajm_disclaimer_agreed`).
+- Entry disclaimer modal: the first-visit pop-up is DISABLED at the owner's request (Sept 2026) via
+  `SHOW_ENTRY_DISCLAIMER = false` in `src/lib/disclaimer.ts`. Set it to `true` to restore. The modal still opens
+  from the footer "Disclaimer" link (agreement stored in localStorage key `ajm_disclaimer_agreed`).
 - KEEP the footer disclaimer and the form consent checkbox.
 
 ## Content sources
