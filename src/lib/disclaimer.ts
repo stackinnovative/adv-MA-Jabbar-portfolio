@@ -8,3 +8,10 @@ export const DISCLAIMER_KEY = 'ajm_disclaimer_agreed';
  * Set to true to restore the first-visit pop-up (BCI Rule 36 practice).
  */
 export const SHOW_ENTRY_DISCLAIMER = false;
+
+/**
+ * Show the disclaimer text box in the footer.
+ * Disabled at the owner's request (Oct 2026). The footer "Disclaimer" link remains.
+ * Set to true to restore it.
+ */
+export const SHOW_FOOTER_DISCLAIMER = false;

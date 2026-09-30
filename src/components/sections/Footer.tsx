@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { DisclaimerLink } from '@/components/Disclaimer';
+import { SHOW_FOOTER_DISCLAIMER } from '@/lib/disclaimer';
 import type { Disclaimer, SiteSettings } from '@/lib/types';
 
 export function Footer({ settings, disclaimer }: { settings: SiteSettings; disclaimer: Disclaimer }) {
@@ -37,10 +38,12 @@ export function Footer({ settings, disclaimer }: { settings: SiteSettings; discl
             </div>
           </div>
         </div>
-        {/* Footer disclaimer (BCI Rule 36) — keep. */}
-        <div className="footer__legal">
-          <strong>Disclaimer:</strong> {disclaimer.footerText}
-        </div>
+        {/* Footer disclaimer (BCI Rule 36) — switched off via SHOW_FOOTER_DISCLAIMER. */}
+        {SHOW_FOOTER_DISCLAIMER && (
+          <div className="footer__legal">
+            <strong>Disclaimer:</strong> {disclaimer.footerText}
+          </div>
+        )}
         <div className="footer__bottom">
           <span>
             © {new Date().getFullYear()} {settings.name.replace(/\.$/, '')}. All rights reserved.
