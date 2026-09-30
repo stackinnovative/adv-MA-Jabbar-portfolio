@@ -166,7 +166,7 @@ export const siteContent: SiteContent = {
               'Human rights activist; International Member, Amnesty International',
               // TODO: confirm trust name spelling ("Al Aman" in client notes)
               'Founder & Secretary — Al Aman Educational and Charitable Trust and Al Ameen Public School (CBSE), Pathanapuram',
-              'National Vice President — National Lawyers Campaign for Judicial Transparency and Reforms',
+              'Former National Vice President — National Lawyers Campaign for Judicial Transparency and Reforms',
               'Member — United Nations Millennium Campaign',
             ],
             facts: [
