@@ -236,8 +236,7 @@ p { margin: 0; }
 .beyond__copy { display: flex; flex-direction: column; gap: 24px; }
 .beyond__copy > p { font-size: 17px; line-height: 1.7; color: var(--ink-2); }
 .timeline { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line-2); }
-.timeline li { display: flex; justify-content: space-between; gap: 24px; padding: 16px 0; border-bottom: 1px solid var(--line-2); }
-.timeline span:last-child { color: var(--gold-dk); flex-shrink: 0; }
+.timeline li { padding: 16px 0; border-bottom: 1px solid var(--line-2); }
 
 /* Contact */
 .contact { display: grid; grid-template-columns: 5fr 1fr 6fr; gap: 24px; }
@@ -272,6 +271,8 @@ p { margin: 0; }
 .footer__cols h4 { margin: 0 0 6px; font-size: 12px; font-weight: 400; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
 .footer__cols a, .footer__cols span { display: block; color: var(--soft); text-decoration: none; }
 .footer__cols a:hover { color: var(--gold); }
+.footer__office { font-style: normal; line-height: 1.6; margin: 4px 0 14px; }
+.footer__cols a, .footer__office span { white-space: nowrap; }
 .footer__legal { padding: 24px 28px; border: 1px solid var(--ink-line); font-size: 14px; line-height: 1.7; color: #A99E8B; }
 .footer__legal strong { color: #E0D6C3; }
 .footer__bottom { display: flex; justify-content: space-between; gap: 16px; font-size: 13px; color: #8A7F6C; }
@@ -426,7 +427,7 @@ html[data-disclaimer="pending"] body { overflow: hidden; }
   .beyond__copy { display: contents; }
   .beyond__copy > .eyebrow, .beyond__copy > h2 { order: 0; }
   .beyond__copy > p, .timeline { order: 2; }
-  .timeline li { font-size: 15px; gap: 16px; }
+  .timeline li { font-size: 15px; }
 
   .contact { grid-template-columns: minmax(0, 1fr); gap: 32px; }
   .contact__quick { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -440,6 +441,7 @@ html[data-disclaimer="pending"] body { overflow: hidden; }
   .footer .container { gap: 28px; }
   .footer__top { flex-direction: column; gap: 28px; }
   .footer__cols { flex-direction: column; gap: 20px; line-height: 1.6; }
+  .footer__cols a, .footer__office span { white-space: normal; }
   .footer__cols a { min-height: 40px; display: flex; align-items: center; }
   .footer__legal { padding: 18px; font-size: 13px; }
   .footer__bottom { flex-direction: column; font-size: 12px; }

@@ -167,7 +167,13 @@ export const homePage = defineType({
         defineField({ name: 'heading', type: 'text', rows: 2, description: HEADING_HELP }),
         defineField({ name: 'body', type: 'text', rows: 4 }),
         imageField('image', 'Photo'),
-        defineField({ name: 'timeline', type: 'array', of: [labelValueMember('entry', 'year')] }),
+        defineField({
+          name: 'timeline',
+          title: 'Engagements',
+          type: 'array',
+          of: [defineArrayMember({ type: 'string' })],
+          description: 'One line each, e.g. "Delegate — UN Global Meeting on Sustainable Development, Bonn, Germany". No years.',
+        }),
       ],
     }),
     defineField({

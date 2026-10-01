@@ -31,7 +31,11 @@ export function Footer({ settings, disclaimer }: { settings: SiteSettings; discl
             <div>
               <h4>Chambers</h4>
               {settings.offices.map((o) => (
-                <span key={o.label}>{o.label}</span>
+                <address className="footer__office" key={o.label}>
+                  {o.footerLines.map((line) => (
+                    <span key={line}>{line}</span>
+                  ))}
+                </address>
               ))}
               <a href={settings.phone.href}>{settings.phone.display}</a>
               <a href={`mailto:${settings.email}`}>{settings.email}</a>

@@ -71,7 +71,7 @@ async function main() {
       practice: { ...home.practice, areas: members('area', home.practice.areas) },
       panels: home.panels,
       process: { ...home.process, steps: members('step', home.process.steps) },
-      beyond: { ...home.beyond, image: await image(home.beyond.image), timeline: members('entry', home.beyond.timeline) },
+      beyond: { ...home.beyond, image: await image(home.beyond.image) },
       contact: home.contact,
     },
     { _id: 'disclaimer', _type: 'disclaimer', ...disclaimer },

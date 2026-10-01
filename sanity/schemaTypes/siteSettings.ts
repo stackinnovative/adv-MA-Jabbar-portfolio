@@ -71,6 +71,13 @@ export const siteSettings = defineType({
           fields: [
             defineField({ name: 'label', type: 'string', description: 'e.g. "Ernakulam — High Court"', validation: (r) => r.required() }),
             defineField({ name: 'lines', title: 'Address lines', type: 'array', of: [defineArrayMember({ type: 'string' })] }),
+            defineField({
+              name: 'footerLines',
+              title: 'Footer address lines',
+              type: 'array',
+              of: [defineArrayMember({ type: 'string' })],
+              description: 'Short address shown in the footer, e.g. "No. 253, KHCAA Chamber Complex" / "Near High Court, Ernakulam".',
+            }),
             defineField({ name: 'mapUrl', title: 'Google Maps link', type: 'url' }),
           ],
           preview: { select: { title: 'label', subtitle: 'lines.1' } },

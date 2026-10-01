@@ -34,11 +34,13 @@ export const siteContent: SiteContent = {
       {
         label: 'Ernakulam — High Court',
         lines: ['Adv. M.A. Jabbar', 'No. 253, KHCAA Chamber Complex', 'Near High Court, Ernakulam', 'Kerala – 682031'],
+        footerLines: ['No. 253, KHCAA Chamber Complex', 'Near High Court, Ernakulam'],
         mapUrl: 'https://www.google.com/maps/search/?api=1&query=KHCAA+Chamber+Complex+High+Court+Ernakulam+682031',
       },
       {
         label: 'Punalur, Kollam',
         lines: ['Adv. M.A. Jabbar · Law Relief', 'Room No. 9, GKP Tower, Near Court Complex', 'Chemmanthoor, Punalur, Kollam', 'Kerala – 691305'],
+        footerLines: ['Room No. 9, GKP Tower, Near Court Complex', 'Chemmanthoor, Punalur, Kollam'],
         mapUrl: 'https://www.google.com/maps/search/?api=1&query=GKP+Tower+Chemmanthoor+Punalur+691305',
       },
     ],
@@ -253,14 +255,14 @@ export const siteContent: SiteContent = {
         height: 1534,
       },
       timeline: [
-        { label: 'Delegate — United Nations Global Meeting on Sustainable Development, Bonn, Germany', year: '2019' },
-        { label: 'Coordinator — State Disaster Management wireless communications, Sabarimala', year: '2011' },
-        { label: 'Representative of Amnesty International India — People’s Budget Programme, New Delhi', year: '2007' },
+        'Delegate — United Nations Global Meeting on Sustainable Development, Bonn, Germany',
+        'Coordinator — State Disaster Management wireless communications, Sabarimala',
+        'Representative of Amnesty International India — People’s Budget Programme, New Delhi',
         // TODO: confirm trust name spelling ("Al Aman" in client notes)
-        { label: 'Founder & Secretary — Al Aman Educational and Charitable Trust and Al Ameen Public School (CBSE), Pathanapuram', year: '' },
-        { label: 'Former National Vice President — National Lawyers Campaign for Judicial Transparency and Reforms', year: '' },
-        { label: 'Member — United Nations Millennium Campaign · International Member — Amnesty International', year: '' },
-        { label: 'Former Regional Project Manager & Additional Cabinet Secretary — Lions Clubs International, District 324E-1', year: '' },
+        'Founder & Secretary — Al Aman Educational and Charitable Trust and Al Ameen Public School (CBSE), Pathanapuram',
+        'Former National Vice President — National Lawyers Campaign for Judicial Transparency and Reforms',
+        'Member — United Nations Millennium Campaign · International Member — Amnesty International',
+        'Former Regional Project Manager & Additional Cabinet Secretary — Lions Clubs International, District 324E-1',
       ],
     },
 

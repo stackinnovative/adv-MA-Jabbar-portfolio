@@ -23,6 +23,8 @@ export type Office = {
   /** Short label, e.g. "Ernakulam — High Court". */
   label: string;
   lines: string[];
+  /** Short address shown in the footer's Chambers column. */
+  footerLines: string[];
   /** Google Maps link for directions. */
   mapUrl: string;
 };
@@ -96,7 +98,8 @@ export type HomePage = {
     heading: string;
     body: string;
     image: ImageRef;
-    timeline: { label: string; year: string }[];
+    /** List of engagements (no years — client preference for a uniform list). */
+    timeline: string[];
   };
   contact: {
     eyebrow: string;

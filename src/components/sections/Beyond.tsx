@@ -23,11 +23,8 @@ export function Beyond({ beyond }: { beyond: HomePage['beyond'] }) {
           </h2>
           <p>{beyond.body}</p>
           <ul className="timeline">
-            {beyond.timeline.map((t) => (
-              <li key={t.label}>
-                <span>{t.label}</span>
-                <span>{t.year}</span>
-              </li>
+            {beyond.timeline.map((item) => (
+              <li key={item}>{item}</li>
             ))}
           </ul>
         </div>
