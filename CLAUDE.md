@@ -64,7 +64,9 @@ Indian advocates may not advertise or solicit work. The site may only state fact
 - Do NOT add the Govt of India emblem next to the MCA mediator appointment, even if the client asks.
 - Photos: originals in `source-images/` (client's studio set, Sept 2026). `node scripts/make-images.mjs` builds
   outputs named `<prefix>-<source>-<content hash>.jpg` (any change gets a new URL — avoids stale image caches):
-  - hero ← `portrait-seated-side.jpg` (client's "6.jpeg"; backdrop blended to ink so it sits seamlessly on the dark hero) + `og.jpg`
+  - hero ← `portrait-seated-side.jpg` (client's "6.jpeg"; backdrop blended to ink so it sits seamlessly on the dark hero) + `og.jpg`.
+    He faces right, so on desktop the hero puts the photo on the LEFT and the text on the right.
+    Never mirror/flip portraits — the client rejected it (it changes the face).
   - About portrait ← `portrait-headshot-left.jpg` (client's "1.jpeg"), colour
   - quote band (maroon) ← `portrait-hands-on-hips.jpg` (client's "5.jpeg"), colour
   - "Public service & social engagement" ← `portrait-seated.jpg` (client's "3.jpeg"), black and white

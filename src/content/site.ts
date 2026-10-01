@@ -56,7 +56,7 @@ export const siteContent: SiteContent = {
       heading: 'Turning conflict\ninto *cooperation*,\nthrough dialogue.',
       lead: 'Advocate at the High Court of Kerala. IMI and IICA certified mediator, corporate mediator with the Ministry of Corporate Affairs, and empanelled arbitrator with NSE and BSE.',
       image: {
-        src: '/images/hero-portrait-seated-side-48cea9e5.jpg',
+        src: '/images/hero-portrait-seated-side-f041633c.jpg',
         alt: 'Adv. M.A. Jabbar',
         width: 1400,
         height: 1800,

@@ -85,8 +85,9 @@ p { margin: 0; }
 /* Hero */
 /* overflow: clip (not hidden) so the mobile photo can be position: sticky. */
 .hero { position: relative; background: var(--ink); overflow: hidden; overflow: clip; }
-.hero__art { position: absolute; left: -40px; bottom: -10px; width: 760px; opacity: .12; pointer-events: none; }
-.hero .container { position: relative; min-height: 720px; display: flex; align-items: center; gap: 72px; padding-block: 64px; }
+.hero__art { position: absolute; right: -40px; bottom: -10px; width: 760px; opacity: .12; pointer-events: none; }
+/* Desktop: photo on the left (he faces right, towards the text), text on the right. */
+.hero .container { position: relative; min-height: 720px; display: flex; flex-direction: row-reverse; align-items: center; gap: 72px; padding-block: 64px; }
 .hero__copy { flex: 1; display: flex; flex-direction: column; gap: 28px; }
 .hero__kicker { display: flex; align-items: center; gap: 14px; font-size: 13px; letter-spacing: .24em; text-transform: uppercase; color: var(--gold); }
 .hero__kicker::before { content: ''; width: 40px; height: 1px; background: var(--gold); }
@@ -124,9 +125,9 @@ p { margin: 0; }
    The portrait's backdrop is pre-blended to --ink (scripts/make-images.mjs), so the
    photo has no visible edge: it sits on the kasavu band and in front of the gold frame. */
 .hero__photo { position: relative; width: 480px; flex-shrink: 0; align-self: flex-end; margin-bottom: -64px; }
-.hero__photo::before { content: ''; position: absolute; inset: -26px -26px 90px 26px; border: 1px solid var(--gold); }
+.hero__photo::before { content: ''; position: absolute; inset: -26px 26px 90px -26px; border: 1px solid var(--gold); }
 .hero__photo img { position: relative; width: 100%; height: auto; }
-.badge { position: absolute; left: -28px; bottom: 120px; padding: 16px 22px; background: var(--maroon); color: var(--paper); }
+.badge { position: absolute; right: -28px; bottom: 120px; padding: 16px 22px; background: var(--maroon); color: var(--paper); }
 .badge small { display: block; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--cream); }
 .badge strong { font: 500 20px var(--f-display); }
 
@@ -345,7 +346,7 @@ html[data-disclaimer="pending"] body { overflow: hidden; }
   .tabnav__toggle { width: 44px; height: 44px; flex-shrink: 0; }
   .hero__photo { order: -1; position: sticky; top: calc(var(--header-h, 84px) + 16px); z-index: 0; width: calc(100% - 14px); max-width: 420px; align-self: center; margin-bottom: 0; }
   .hero__photo::before { inset: -14px -14px 60px 14px; }
-  .badge { left: -8px; bottom: 72px; padding: 12px 16px; }
+  .badge { left: -8px; right: auto; bottom: 72px; padding: 12px 16px; }
   .badge strong { font-size: 17px; }
 
   .section { padding-block: 56px; }

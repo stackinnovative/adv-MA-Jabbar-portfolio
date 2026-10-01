@@ -49,7 +49,11 @@ async function save(prefix, src, buffer) {
 }
 
 async function blendOntoInk(src, width) {
-  const base = await sharp(src).rotate().resize({ width }).toBuffer();
+  // linear(): darken the darkest tones a little (and lift highlights to compensate) so
+  // the whole studio backdrop — including bluish patches up to ~rgb(17,17,25) — falls
+  // below the ink colour and vanishes in the blend, instead of showing as a faint box.
+  // Never mirror portraits — flipping changes how a face looks.
+  const base = await sharp(src).rotate().resize({ width }).linear(1.07, -17).toBuffer();
   const { width: w, height: h } = await sharp(base).metadata();
   const ink = await sharp({ create: { width: w, height: h, channels: 3, background: INK } }).png().toBuffer();
   return sharp(ink).composite([{ input: base, blend: 'lighten' }]).jpeg(jpeg).toBuffer();
