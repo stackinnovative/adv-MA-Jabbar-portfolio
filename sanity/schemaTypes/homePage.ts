@@ -4,6 +4,20 @@ import { HEADING_HELP, imageField, labelValueMember, titleTextMember } from './f
 const RULE_36 =
   'Bar Council of India Rule 36: state facts only. No testimonials, results, ratings, or words like "best", "top", "leading", "expert".';
 
+/** A maroon quote band: text, attribution and a photo (shown uncropped). */
+const quoteField = (name: string, title: string, group: string) =>
+  defineField({
+    name,
+    title,
+    type: 'object',
+    group,
+    fields: [
+      defineField({ name: 'text', type: 'text', rows: 4, validation: (r) => r.required() }),
+      defineField({ name: 'attribution', type: 'string' }),
+      imageField('image', 'Photo', 'Shown beside the quote at its full size — the photo is never cropped.'),
+    ],
+  });
+
 export const homePage = defineType({
   name: 'homePage',
   title: 'Home page',
@@ -89,16 +103,7 @@ export const homePage = defineType({
         }),
       ],
     }),
-    defineField({
-      name: 'quote',
-      type: 'object',
-      group: 'about',
-      fields: [
-        defineField({ name: 'text', type: 'text', rows: 4 }),
-        defineField({ name: 'attribution', type: 'string' }),
-        imageField('image', 'Photo', 'Shown beside the quote. Portrait (4:5) crop works best.'),
-      ],
-    }),
+    quoteField('quote', 'Quote (after About)', 'about'),
     defineField({
       name: 'practice',
       title: 'Areas of practice',
@@ -125,6 +130,7 @@ export const homePage = defineType({
         }),
       ],
     }),
+    quoteField('practiceQuote', 'Quote (after Areas of Practice)', 'practice'),
     defineField({
       name: 'panels',
       title: 'Panels & certifications',

@@ -49,8 +49,9 @@ Indian advocates may not advertise or solicit work. The site may only state fact
 - Entry disclaimer modal: the first-visit pop-up is DISABLED at the owner's request (Sept 2026) via
   `SHOW_ENTRY_DISCLAIMER = false` in `src/lib/disclaimer.ts`. Set it to `true` to restore. The modal still opens
   from the footer "Disclaimer" link (agreement stored in localStorage key `ajm_disclaimer_agreed`).
-- Footer disclaimer text box: DISABLED at the owner's request (Oct 2026) via `SHOW_FOOTER_DISCLAIMER = false` in
-  `src/lib/disclaimer.ts`. Set it to `true` to restore. The footer "Disclaimer" link (opens the pop-up) remains.
+- KEEP the footer disclaimer box (`SHOW_FOOTER_DISCLAIMER = true` in `src/lib/disclaimer.ts`). Wording (client-supplied,
+  Oct 2026): "This website is for informational purposes only as per BCI rules. No advertisement or solicitation.
+  Emblems/logos of Government of India are not used." The footer "Disclaimer" link (opens the pop-up) also remains.
 - KEEP the form consent checkbox.
 
 ## Content sources
@@ -62,13 +63,15 @@ Indian advocates may not advertise or solicit work. The site may only state fact
 - Do NOT publish the residential address (Pattazhy Vadakkekara) — privacy.
 - Do NOT add the Govt of India emblem next to the MCA mediator appointment, even if the client asks.
 - Photos: originals in `source-images/` (client's studio set, Sept 2026). `node scripts/make-images.mjs` builds
-  outputs named after their source (so a swap always changes the URL — avoids stale image caches):
-  - hero ← `portrait-seated.jpg` (client's "3.jpeg"; backdrop blended to ink so it sits seamlessly on the dark hero) + `og.jpg`
+  outputs named `<prefix>-<source>-<content hash>.jpg` (any change gets a new URL — avoids stale image caches):
+  - hero ← `portrait-seated-side.jpg` (client's "6.jpeg"; backdrop blended to ink so it sits seamlessly on the dark hero) + `og.jpg`
   - About portrait ← `portrait-headshot-left.jpg` (client's "1.jpeg"), colour
-  - quote band (maroon) ← `portrait-hands-on-hips.jpg` (client's "5.jpeg"), 4:5 crop
-  - "Beyond the Courtroom" ← `portrait-seated-side.jpg` (client's "6.jpeg"), black and white
-  - `portrait-headshot-front.jpg` (client's "2.jpeg") is currently unused
-  After running it, update the image paths and sizes in `src/content/site.ts`.
+  - quote band (maroon) ← `portrait-hands-on-hips.jpg` (client's "5.jpeg"), colour
+  - "Public service & social engagement" ← `portrait-seated.jpg` (client's "3.jpeg"), black and white
+  - second quote band (after Areas of Practice, photo on the right) ← `portrait-headshot-front.jpg` (client's "2.jpeg"), colour
+  After running it, copy the printed paths and sizes into `src/content/site.ts`.
+  Photos are never cropped (client requirement): outputs keep the original proportions and every photo box
+  sizes itself from the image (`height: auto`). Do not reintroduce fixed heights/aspect ratios or object-fit crops.
   A new hero photo uploaded in the Studio must be prepared the same way. Old photos (chambers, Edinburgh, blue-background
   portrait) are no longer used; copies remain in `_static/assets/img/`.
 

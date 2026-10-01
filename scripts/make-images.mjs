@@ -2,41 +2,51 @@
 //
 //   node scripts/make-images.mjs
 //
-// Outputs (in public/images/) are named after their source photo, so swapping a
-// photo always changes the URL and no browser or Next.js image cache serves the old one:
-//   hero-<source>.jpg  — hero portrait. The original has a near-black studio backdrop;
-//                        blending it onto the site's ink colour with "lighten" turns the
-//                        backdrop into exactly --ink (#16130F) while leaving the figure
-//                        untouched, so the photo has no visible edge on the dark hero.
-//   about-<source>.jpg — About section portrait (colour).
-//   bw-<source>.jpg    — black-and-white portrait, "Beyond the Courtroom".
-//   quote-<source>.jpg — photo beside the quote (maroon band), 4:5 crop.
-//   og.jpg             — 1200×630 social share card (name + hero crop).
+// Photos are never cropped: each output keeps the original's proportions, and the
+// site sizes every photo box from the image's own width/height, so nothing is cut
+// off on any screen.
+//
+// Outputs go to public/images/ as <prefix>-<source>-<hash>.jpg. The hash comes from
+// the file contents, so any change gets a new URL and no browser or Next.js image
+// cache can keep serving an old version.
+//   hero-…   hero portrait. The original has a near-black studio backdrop; blending it
+//            onto the site's ink colour with "lighten" turns the backdrop into exactly
+//            --ink (#16130F) while leaving the figure untouched, so the photo has no
+//            visible edge on the dark hero.
+//   about-…  About section portrait (colour).
+//   quote-…  photo beside the first quote (maroon band, after About), colour.
+//   quote2-… photo beside the second quote (maroon band, after Areas of Practice), colour.
+//   bw-…     black-and-white portrait, "Public service & social engagement".
+//   og.jpg   1200×630 social share card (name + hero crop) — the one crop, by design.
 // After running, copy the printed paths and sizes into src/content/site.ts.
-import { readdirSync, rmSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { basename } from 'node:path';
 import sharp from 'sharp';
 
 const SRC = {
-  hero: 'source-images/portrait-seated.jpg', // client's 3.jpeg
+  hero: 'source-images/portrait-seated-side.jpg', // client's 6.jpeg
   about: 'source-images/portrait-headshot-left.jpg', // client's 1.jpeg
   quote: 'source-images/portrait-hands-on-hips.jpg', // client's 5.jpeg
-  beyond: 'source-images/portrait-seated-side.jpg', // client's 6.jpeg (black and white)
+  bw: 'source-images/portrait-seated.jpg', // client's 3.jpeg (black and white)
+  quote2: 'source-images/portrait-headshot-front.jpg', // client's 2.jpeg
 };
-const out = (prefix, src) => `public/images/${prefix}-${basename(src, '.jpg')}.jpg`;
-const OUT = {
-  hero: out('hero', SRC.hero),
-  about: out('about', SRC.about),
-  beyond: out('bw', SRC.beyond),
-  quote: out('quote', SRC.quote),
-};
+const INK = { r: 22, g: 19, b: 15 };
+const jpeg = { quality: 86, mozjpeg: true };
 
 // Remove outputs from earlier runs.
 for (const f of readdirSync('public/images')) {
-  if (/^(hero|about|bw|beyond|quote)-.*\.jpg$/.test(f)) rmSync(`public/images/${f}`);
+  if (/^(hero|about|bw|beyond|quote|quote2)-.*\.jpg$/.test(f)) rmSync(`public/images/${f}`);
 }
-const INK = { r: 22, g: 19, b: 15 };
-const jpeg = { quality: 86, mozjpeg: true };
+
+async function save(prefix, src, buffer) {
+  const hash = createHash('sha1').update(buffer).digest('hex').slice(0, 8);
+  const path = `/images/${prefix}-${basename(src, '.jpg')}-${hash}.jpg`;
+  writeFileSync(`public${path}`, buffer);
+  const { width, height } = await sharp(buffer).metadata();
+  console.log(`${prefix.padEnd(6)} ${path}  ${width} x ${height}`);
+  return buffer;
+}
 
 async function blendOntoInk(src, width) {
   const base = await sharp(src).rotate().resize({ width }).toBuffer();
@@ -45,9 +55,11 @@ async function blendOntoInk(src, width) {
   return sharp(ink).composite([{ input: base, blend: 'lighten' }]).jpeg(jpeg).toBuffer();
 }
 
-// Hero
-const hero = await blendOntoInk(SRC.hero, 1400);
-await sharp(hero).toFile(OUT.hero);
+const hero = await save('hero', SRC.hero, await blendOntoInk(SRC.hero, 1400));
+await save('about', SRC.about, await sharp(SRC.about).rotate().resize({ width: 1200 }).jpeg(jpeg).toBuffer());
+await save('quote', SRC.quote, await sharp(SRC.quote).rotate().resize({ width: 1000 }).jpeg(jpeg).toBuffer());
+await save('quote2', SRC.quote2, await sharp(SRC.quote2).rotate().resize({ width: 1000 }).jpeg(jpeg).toBuffer());
+await save('bw', SRC.bw, await sharp(SRC.bw).rotate().resize({ width: 1200 }).grayscale().linear(1.08, -6).jpeg(jpeg).toBuffer());
 
 // Share card
 const card = Buffer.from(`<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'>
@@ -60,17 +72,4 @@ const card = Buffer.from(`<svg xmlns='http://www.w3.org/2000/svg' width='1200' h
 </svg>`);
 const photo = await sharp(hero).resize({ width: 600, height: 596, fit: 'cover', position: 'north' }).toBuffer();
 await sharp(card).composite([{ input: photo, left: 600, top: 0 }]).jpeg(jpeg).toFile('public/images/og.jpg');
-
-// About portrait (colour)
-await sharp(SRC.about).rotate().resize({ width: 1200 }).jpeg(jpeg).toFile(OUT.about);
-
-// Black-and-white portrait
-await sharp(SRC.beyond).rotate().resize({ width: 1200 }).grayscale().linear(1.08, -6).jpeg(jpeg).toFile(OUT.beyond);
-
-// Quote section photo, cropped to 4:5
-await sharp(SRC.quote).rotate().resize({ width: 800, height: 1000, fit: 'cover', position: 'centre' }).jpeg(jpeg).toFile(OUT.quote);
-
-for (const f of [OUT.hero, OUT.about, OUT.beyond, OUT.quote, 'public/images/og.jpg']) {
-  const m = await sharp(f).metadata();
-  console.log(`${f.replace('public', '')}  ${m.width} x ${m.height}`);
-}
+console.log('og     /images/og.jpg  1200 x 630');

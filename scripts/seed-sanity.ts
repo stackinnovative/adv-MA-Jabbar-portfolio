@@ -67,6 +67,7 @@ async function main() {
         },
       },
       quote: { ...home.quote, image: await image(home.quote.image) },
+      practiceQuote: { ...home.practiceQuote, image: await image(home.practiceQuote.image) },
       practice: { ...home.practice, areas: members('area', home.practice.areas) },
       panels: home.panels,
       process: { ...home.process, steps: members('step', home.process.steps) },

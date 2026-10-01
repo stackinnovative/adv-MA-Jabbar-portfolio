@@ -1,9 +1,17 @@
 import Image from 'next/image';
-import type { HomePage } from '@/lib/types';
+import type { QuoteBlock } from '@/lib/types';
 
-export function Quote({ quote }: { quote: HomePage['quote'] }) {
+type Props = {
+  quote: QuoteBlock;
+  /** Accessible name for the section. */
+  label: string;
+  /** Photo on the right instead of the left (desktop). */
+  reverse?: boolean;
+};
+
+export function Quote({ quote, label, reverse = false }: Props) {
   return (
-    <section className="quote" aria-label="Philosophy">
+    <section className={reverse ? 'quote quote--reverse' : 'quote'} aria-label={label}>
       <div className="container quote__inner">
         {quote.image.src && (
           <div className="quote__photo">

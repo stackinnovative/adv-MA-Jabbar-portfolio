@@ -10,8 +10,7 @@ export const DISCLAIMER_KEY = 'ajm_disclaimer_agreed';
 export const SHOW_ENTRY_DISCLAIMER = false;
 
 /**
- * Show the disclaimer text box in the footer.
- * Disabled at the owner's request (Oct 2026). The footer "Disclaimer" link remains.
- * Set to true to restore it.
+ * Show the disclaimer text box in the footer (text: `disclaimer.footerText`).
+ * Set to false to hide it; the footer "Disclaimer" link stays either way.
  */
-export const SHOW_FOOTER_DISCLAIMER = false;
+export const SHOW_FOOTER_DISCLAIMER = true;

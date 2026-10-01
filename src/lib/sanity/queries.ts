@@ -25,6 +25,7 @@ export const SITE_QUERY = /* groq */ `{
     "about": about{ ..., ${image('portrait')} },
     "quote": quote{ ..., ${image('image')} },
     practice,
+    "practiceQuote": practiceQuote{ ..., ${image('image')} },
     panels,
     process,
     "beyond": beyond{ ..., ${image('image')} },

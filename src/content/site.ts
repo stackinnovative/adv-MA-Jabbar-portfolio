@@ -56,11 +56,10 @@ export const siteContent: SiteContent = {
       heading: 'Turning conflict\ninto *cooperation*,\nthrough dialogue.',
       lead: 'Advocate at the High Court of Kerala. IMI and IICA certified mediator, corporate mediator with the Ministry of Corporate Affairs, and empanelled arbitrator with NSE and BSE.',
       image: {
-        src: '/images/hero-portrait-seated.jpg',
+        src: '/images/hero-portrait-seated-side-48cea9e5.jpg',
         alt: 'Adv. M.A. Jabbar',
         width: 1400,
-        height: 1790,
-        position: '50% 30%',
+        height: 1800,
       },
       badge: { label: 'Certified Mediator', value: 'IMI · IICA' },
       highlights: [
@@ -82,11 +81,10 @@ export const siteContent: SiteContent = {
         'He holds an LL.M. and an LL.B. from Mahatma Gandhi University, Kottayam, and a Post Graduate Diploma in Alternative Dispute Resolution from NALSAR University of Law, Hyderabad. His approach to mediation rests on empathy, dialogue and understanding.',
       ],
       portrait: {
-        src: '/images/about-portrait-headshot-left.jpg',
+        src: '/images/about-portrait-headshot-left-607a508f.jpg',
         alt: 'Portrait of Adv. Abdul Jabbarudeen M.',
         width: 1200,
         height: 986,
-        position: '48% 30%',
       },
       facts: [
         { label: 'Practice', value: 'High Court of Kerala' },
@@ -183,11 +181,10 @@ export const siteContent: SiteContent = {
       text: 'As India continues to build its physical infrastructure, it must also strengthen its culture of communication and collaboration — making mediation an essential pillar for peace, progress and sustainable development.',
       attribution: 'Adv. M.A. Jabbar',
       image: {
-        src: '/images/quote-portrait-hands-on-hips.jpg',
+        src: '/images/quote-portrait-hands-on-hips-2f24cac2.jpg',
         alt: 'Adv. M.A. Jabbar',
-        width: 800,
-        height: 1000,
-        position: '50% 30%',
+        width: 1000,
+        height: 1037,
       },
     },
 
@@ -205,6 +202,17 @@ export const siteContent: SiteContent = {
         { title: 'Legal Drafting & Opinions', description: 'Pleadings, petitions, affidavits, legal submissions and legal opinions.' },
         { title: 'Contract Review & Compliance', description: 'Review of agreements and regulatory requirements to identify legal issues and risks.' },
       ],
+    },
+
+    practiceQuote: {
+      text: 'Behind every dispute are people, perspectives, and interests. Mediation brings them together in dialogue, creating space for understanding and a path towards resolution.',
+      attribution: 'Adv. M.A. Jabbar',
+      image: {
+        src: '/images/quote2-portrait-headshot-front-104fbce5.jpg',
+        alt: 'Adv. M.A. Jabbar',
+        width: 1000,
+        height: 787,
+      },
     },
 
     panels: {
@@ -239,11 +247,10 @@ export const siteContent: SiteContent = {
       heading: 'Public service &\nsocial engagement',
       body: 'Alongside his legal work, Adv. M.A. Jabbar is a UN Sustainable Development Goals campaigner and human rights activist, and founded a school in Pathanapuram. From 1989 to 2018 he served the Government of Kerala as District Ophthalmic Co-ordinator under the National Programme for Control of Blindness.',
       image: {
-        src: '/images/bw-portrait-seated-side.jpg',
+        src: '/images/bw-portrait-seated-ba7f1e8f.jpg',
         alt: 'Black-and-white portrait of Adv. M.A. Jabbar',
         width: 1200,
-        height: 1543,
-        position: '40% 35%',
+        height: 1534,
       },
       timeline: [
         { label: 'Delegate — United Nations Global Meeting on Sustainable Development, Bonn, Germany', year: '2019' },
@@ -281,7 +288,7 @@ export const siteContent: SiteContent = {
       'The chambers are not responsible for any action taken based on the content of this website.',
     ],
     footerText:
-      'As per the rules of the Bar Council of India, advocates are not permitted to solicit work or advertise. This website only provides information about Adv. M.A. Jabbar (Abdul Jabbarudeen M.) and the areas of practice. It is not an advertisement, solicitation or legal advice. Using this website or contacting the chambers through it does not create an advocate–client relationship.',
+      'This website is for informational purposes only as per BCI rules. No advertisement or solicitation. Emblems/logos of Government of India are not used.',
   },
 
   // TODO: final wording reviewed by the advocate (DPDP Act, 2023 — the form collects personal data)

@@ -47,8 +47,9 @@ export default async function HomePage() {
         <Hero hero={home.hero} />
         <Kasavu />
         <About about={home.about} />
-        <Quote quote={home.quote} />
+        <Quote quote={home.quote} label="Philosophy" />
         <Practice practice={home.practice} />
+        <Quote quote={home.practiceQuote} label="On mediation" reverse />
         <Panels panels={home.panels} />
         <Process process={home.process} />
         <Beyond beyond={home.beyond} />

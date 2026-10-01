@@ -50,6 +50,9 @@ export type SiteSettings = {
 
 export type Highlight = { title: string; text: string };
 
+/** A maroon quote band: the advocate's words with a photo. */
+export type QuoteBlock = { text: string; attribution: string; image: ImageRef };
+
 /** One role in the About section's "Roles in detail" tabs. */
 export type Role = {
   title: string;
@@ -76,7 +79,10 @@ export type HomePage = {
     facts: { label: string; value: string }[];
     roles: { eyebrow: string; heading: string; items: Role[] };
   };
-  quote: { text: string; attribution: string; image: ImageRef };
+  /** Quote band after About. */
+  quote: QuoteBlock;
+  /** Second quote band, after Areas of Practice. */
+  practiceQuote: QuoteBlock;
   practice: {
     eyebrow: string;
     heading: string;

@@ -120,11 +120,12 @@ p { margin: 0; }
 .tablist button[aria-selected="true"] { background: var(--maroon); color: var(--paper); }
 .tabnav__toggle { display: grid; place-items: center; background: transparent; border: 1px solid var(--ink-2); }
 
-/* The portrait's backdrop is pre-blended to --ink (scripts/make-images.mjs), so the
+/* Photos are never cropped: every img keeps its natural proportions (height: auto).
+   The portrait's backdrop is pre-blended to --ink (scripts/make-images.mjs), so the
    photo has no visible edge: it sits on the kasavu band and in front of the gold frame. */
-.hero__photo { position: relative; width: 480px; aspect-ratio: 1400 / 1790; flex-shrink: 0; align-self: flex-end; margin-bottom: -64px; }
+.hero__photo { position: relative; width: 480px; flex-shrink: 0; align-self: flex-end; margin-bottom: -64px; }
 .hero__photo::before { content: ''; position: absolute; inset: -26px -26px 90px 26px; border: 1px solid var(--gold); }
-.hero__photo img { position: relative; width: 100%; height: 100%; object-fit: cover; }
+.hero__photo img { position: relative; width: 100%; height: auto; }
 .badge { position: absolute; left: -28px; bottom: 120px; padding: 16px 22px; background: var(--maroon); color: var(--paper); }
 .badge small { display: block; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--cream); }
 .badge strong { font: 500 20px var(--f-display); }
@@ -147,9 +148,9 @@ p { margin: 0; }
 .about__sub { font-size: 18px; color: var(--muted); margin-top: 8px; }
 .about__bio { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 40px; font-size: 17px; line-height: 1.7; color: var(--ink-2); }
 .about__side { grid-column: 3; display: flex; flex-direction: column; gap: 38px; }
-.portrait { position: relative; aspect-ratio: 4 / 5; }
+.portrait { position: relative; }
 .portrait::before { content: ''; position: absolute; inset: 14px -14px -14px 14px; border: 1px solid var(--kasavu); }
-.portrait img { position: relative; width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; }
+.portrait img { position: relative; width: 100%; height: auto; }
 .facts { border-top: 2px solid var(--ink); }
 .fact { padding: 16px 0; border-bottom: 1px solid var(--line); }
 .fact dt { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-dk); }
@@ -188,12 +189,16 @@ p { margin: 0; }
 /* Quote */
 .quote { background: var(--maroon); padding-block: 96px; }
 .quote__inner { display: flex; align-items: center; justify-content: center; gap: 80px; }
-.quote__photo { position: relative; width: 320px; aspect-ratio: 4 / 5; flex-shrink: 0; }
+.quote__photo { position: relative; width: 320px; flex-shrink: 0; }
 .quote__photo::before { content: ''; position: absolute; inset: -18px 18px 18px -18px; border: 1px solid var(--gold); }
-.quote__photo img { position: relative; width: 100%; height: 100%; object-fit: cover; }
+.quote__photo img { position: relative; width: 100%; height: auto; }
 .quote blockquote { max-width: 720px; margin: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 28px; }
 .quote p { font: italic 500 clamp(22px, 2.4vw, 34px)/1.45 var(--f-display); color: var(--paper); }
 .quote cite { font-style: normal; font-size: 13px; letter-spacing: .24em; text-transform: uppercase; color: var(--cream); }
+/* Second quote band: photo on the right, frame mirrored; landscape photo gets a wider box. */
+.quote--reverse .quote__inner { flex-direction: row-reverse; }
+.quote--reverse .quote__photo { width: 400px; }
+.quote--reverse .quote__photo::before { inset: -18px -18px 18px 18px; }
 
 /* Practice grid */
 .practice { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line-2); border: 1px solid var(--line-2); }
@@ -224,9 +229,9 @@ p { margin: 0; }
 
 /* Beyond */
 .beyond { display: flex; gap: 80px; align-items: center; }
-.beyond__photo { position: relative; width: 460px; height: 580px; flex-shrink: 0; }
+.beyond__photo { position: relative; width: 460px; flex-shrink: 0; }
 .beyond__photo::before { content: ''; position: absolute; inset: -22px 22px 22px -22px; border: 1px solid var(--kasavu); }
-.beyond__photo img { position: relative; width: 100%; height: 100%; object-fit: cover; object-position: 50% 55%; }
+.beyond__photo img { position: relative; width: 100%; height: auto; }
 .beyond__copy { display: flex; flex-direction: column; gap: 24px; }
 .beyond__copy > p { font-size: 17px; line-height: 1.7; color: var(--ink-2); }
 .timeline { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line-2); }
@@ -293,6 +298,8 @@ html[data-disclaimer="pending"] body { overflow: hidden; }
   .hero .container { gap: 48px; }
   .hero__photo { width: 380px; }
   .tabcard { width: auto; flex: 1; }
+  .quote__inner { gap: 56px; }
+  .quote--reverse .quote__photo { width: 340px; }
   .roles__body { grid-template-columns: 270px minmax(0, 1fr); }
   .roles__panel { padding: 36px 32px; }
   .roles__cols { grid-template-columns: minmax(0, 1fr); gap: 28px; }
@@ -387,6 +394,9 @@ html[data-disclaimer="pending"] body { overflow: hidden; }
   .quote__inner { flex-direction: column; align-items: flex-start; gap: 40px; }
   .quote__photo { width: 200px; margin-left: 12px; }
   .quote__photo::before { inset: -12px 12px 12px -12px; }
+  .quote--reverse .quote__inner { flex-direction: column; }
+  .quote--reverse .quote__photo { width: 260px; margin-left: 0; }
+  .quote--reverse .quote__photo::before { inset: -12px -12px 12px 12px; }
   .quote blockquote { gap: 20px; }
   .quote cite { font-size: 11px; }
 
@@ -410,7 +420,7 @@ html[data-disclaimer="pending"] body { overflow: hidden; }
   .steps p { font-size: 15px; }
 
   .beyond { flex-direction: column; align-items: stretch; gap: 22px; }
-  .beyond__photo { width: 100%; height: 420px; order: 1; }
+  .beyond__photo { width: 100%; order: 1; }
   .beyond__photo::before { display: none; }
   .beyond__copy { display: contents; }
   .beyond__copy > .eyebrow, .beyond__copy > h2 { order: 0; }

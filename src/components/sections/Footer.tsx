@@ -38,7 +38,7 @@ export function Footer({ settings, disclaimer }: { settings: SiteSettings; discl
             </div>
           </div>
         </div>
-        {/* Footer disclaimer (BCI Rule 36) — switched off via SHOW_FOOTER_DISCLAIMER. */}
+        {/* Footer disclaimer (BCI Rule 36) — on/off via SHOW_FOOTER_DISCLAIMER. */}
         {SHOW_FOOTER_DISCLAIMER && (
           <div className="footer__legal">
             <strong>Disclaimer:</strong> {disclaimer.footerText}
