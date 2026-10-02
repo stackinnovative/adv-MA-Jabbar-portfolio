@@ -71,7 +71,6 @@ export const homePage = defineType({
         defineField({ name: 'subtitle', type: 'string' }),
         defineField({ name: 'bio', title: 'Bio paragraphs', type: 'array', of: [defineArrayMember({ type: 'text', rows: 4 })] }),
         imageField('portrait', 'Portrait'),
-        defineField({ name: 'facts', title: 'Key facts', type: 'array', of: [labelValueMember('fact', 'value')] }),
         defineField({
           name: 'roles',
           title: 'Roles in detail (tabs)',

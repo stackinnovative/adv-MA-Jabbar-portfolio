@@ -38,14 +38,6 @@ export function About({ about }: { about: HomePage['about'] }) {
               sizes="(max-width: 900px) 100vw, 400px"
             />
           </div>
-          <dl className="facts">
-            {about.facts.map((f) => (
-              <div className="fact" key={f.label}>
-                <dt>{f.label}</dt>
-                <dd>{f.value}</dd>
-              </div>
-            ))}
-          </dl>
         </aside>
       </div>
 

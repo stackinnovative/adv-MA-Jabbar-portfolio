@@ -24,6 +24,10 @@ Env vars: see `.env.local.example` (set them on the host too).
 - Components never hard-code copy. New field → update `types.ts`, `site.ts`, the Sanity schema and (for images) `queries.ts` together.
 - Without `NEXT_PUBLIC_SANITY_PROJECT_ID` the site runs on `src/content/site.ts` alone; if Sanity is unreachable it falls back to it too.
 - Heading text supports a newline (line break) and `*word*` (italic) via `RichLine`.
+- No fact may appear more than twice on the page (client rule, Oct 2026). Each section has one job:
+  hero lead = one-line summary of credentials · hero tabs = kinds of work · About bio = personal (education, approach) ·
+  role tabs = what each role involves (no credentials) · Panels = the single credentials list ·
+  Social Activist tab = activism · "Public service" (Beyond) = public-service record. Contact details/identity are exempt.
 - Content refreshes every 60 s, or instantly via the webhook.
 
 ## Sanity setup (one-time)

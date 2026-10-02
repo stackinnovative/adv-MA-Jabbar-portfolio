@@ -57,7 +57,6 @@ async function main() {
       about: {
         ...home.about,
         portrait: await image(home.about.portrait),
-        facts: members('fact', home.about.facts),
         roles: {
           ...home.about.roles,
           items: members(

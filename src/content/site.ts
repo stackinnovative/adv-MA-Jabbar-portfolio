@@ -54,33 +54,34 @@ export const siteContent: SiteContent = {
 
   home: {
     hero: {
-      kicker: 'High Court of Kerala · Mediation · Arbitration',
+      kicker: 'Kerala · Mediation · Arbitration',
       heading: 'Turning conflict\ninto *cooperation*,\nthrough dialogue.',
       lead: 'Advocate at the High Court of Kerala. IMI and IICA certified mediator, corporate mediator with the Ministry of Corporate Affairs, and empanelled arbitrator with NSE and BSE.',
       image: {
         src: '/images/hero-portrait-seated-side-f041633c.jpg',
-        alt: 'Adv. M.A. Jabbar',
+        alt: 'Adv. M.A. Jabbar, seated, in a dark suit',
         width: 1400,
         height: 1800,
       },
-      badge: { label: 'Certified Mediator', value: 'IMI · IICA' },
+      badge: { label: 'Chambers', value: 'Ernakulam · Punalur' },
+      // Kinds of work only — credentials live in the lead above and in the Panels list
+      // (keep every fact to at most two mentions on the page).
       highlights: [
-        { title: 'Advocate', text: 'Practising before the High Court of Kerala. Life member, Kerala High Court Advocates’ Association (KHCAA).' },
-        { title: 'International Mediator', text: 'Certified through ODR Latinoamérica / IMI, Netherlands, and trained as a commercial mediator by IICA.' },
-        { title: 'Corporate Mediator', text: 'Ministry of Corporate Affairs, Government of India — Cochin, Chennai, Bangalore and Hyderabad regions.' },
-        { title: 'Arbitrator', text: 'Empanelled arbitrator with the National Stock Exchange (NSE) and BSE, Cochin region, since 2017.' },
-        { title: 'Social Activist', text: 'UN SDG campaigner, human rights activist, and founder of Al Ameen Public School, Pathanapuram.' },
+        { title: 'Mediation', text: 'Helping the parties talk a dispute through and reach terms they both accept.' },
+        { title: 'Arbitration', text: 'Hearing both sides on the evidence and deciding the dispute in a written award.' },
+        { title: 'Litigation', text: 'Representing clients in court, from the first pleading to the final hearing.' },
+        { title: 'Advisory', text: 'Advice on how a dispute can be resolved — by negotiation, mediation, arbitration or in court.' },
       ],
     },
 
     about: {
       name: 'Abdul Jabbarudeen M.',
-      subtitle: 'Advocate, High Court of Kerala · Mediator · Arbitrator · Social Activist',
+      subtitle: 'Also known as Adv. M.A. Jabbar',
+      // Personal narrative only. Credentials are in the hero lead and the Panels list,
+      // and the work itself is in the role tabs below.
       bio: [
-        'Adv. Abdul Jabbarudeen M. (Adv. M.A. Jabbar) practises before the High Court of Kerala in civil, criminal and constitutional matters. He is a life member of the Kerala High Court Advocates’ Association (KHCAA).',
-        'Since 2017 he has been an empanelled arbitrator with the National Stock Exchange (NSE) and BSE for the Cochin region, hearing commercial, financial and securities-related disputes under the Arbitration and Conciliation Act, 1996.',
-        'He is a Certified International Mediator through ODR Latinoamérica / International Mediation Institute (IMI), Netherlands, and a professional commercial mediator trained by the Indian Institute of Corporate Affairs (IICA). He is empanelled as a corporate and commercial mediator with the Ministry of Corporate Affairs, Government of India, for the Cochin, Chennai, Bangalore and Hyderabad regions, and is a panel mediator with Track Second, Noida.',
-        'He holds an LL.M. and an LL.B. from Mahatma Gandhi University, Kottayam, and a Post Graduate Diploma in Alternative Dispute Resolution from NALSAR University of Law, Hyderabad. His approach to mediation rests on empathy, dialogue and understanding.',
+        'Adv. Abdul Jabbarudeen M. is an advocate, mediator and arbitrator in Kerala, and a social activist. His approach to mediation rests on empathy, dialogue and understanding — helping parties move from conflict to cooperation.',
+        'He holds an LL.M. and an LL.B. from Mahatma Gandhi University, Kottayam, and a Post Graduate Diploma in Alternative Dispute Resolution from NALSAR University of Law, Hyderabad. He also holds a B.Sc. in Zoology from the University of Kerala and a Post Graduate Diploma in Journalism (PGDJ) from the School of Communication and Management Studies (SCMS), Cochin.',
       ],
       portrait: {
         src: '/images/about-portrait-headshot-left-607a508f.jpg',
@@ -88,79 +89,61 @@ export const siteContent: SiteContent = {
         width: 1200,
         height: 986,
       },
-      facts: [
-        { label: 'Practice', value: 'High Court of Kerala' },
-        { label: 'Certified Mediator', value: 'IMI · IICA' },
-        { label: 'Corporate Mediator', value: 'Ministry of Corporate Affairs' },
-        { label: 'Empanelled Arbitrator', value: 'NSE · BSE, since 2017' },
-        { label: 'Education', value: 'LL.M. · PGDADR, NALSAR' },
-        { label: 'Languages', value: 'Malayalam · English · Hindi' },
-      ],
       roles: {
         eyebrow: 'Roles in Detail',
         heading: 'One practice,\n*four roles*',
         items: [
+          // Each tab describes the work. Credentials (court, panels, certifications) are
+          // stated in the hero lead and the Panels list — not repeated here.
           {
             title: 'Advocate',
-            subtitle: 'High Court of Kerala',
-            summary:
-              'Practises before the High Court of Kerala in civil, criminal and constitutional matters, with chambers at Ernakulam and Punalur.',
+            subtitle: 'Litigation & advice',
+            summary: 'Civil, criminal and constitutional matters, with chambers at Ernakulam and Punalur.',
             points: [
-              'Civil, criminal and constitutional matters before the High Court of Kerala',
               'Pleadings, petitions, affidavits, applications and legal submissions',
               'Legal research on legislation, case law, evidence and procedure',
               'Review of agreements, case records and documentary evidence',
               'Advice on litigation, regulatory compliance and dispute-resolution options',
             ],
             facts: [
-              { label: 'Court', value: 'High Court of Kerala' },
               { label: 'Practising since', value: '2018' },
-              { label: 'Membership', value: 'Life Member, KHCAA' },
-              { label: 'Chambers', value: 'Ernakulam · Punalur' },
+              { label: 'Memberships', value: 'KHCAA (life member) · Punalur Bar Association' },
             ],
           },
           {
             title: 'Mediator',
-            subtitle: 'International & corporate',
-            summary:
-              'Certified International Mediator (IMI) and professional commercial mediator (IICA), empanelled for corporate and commercial mediation with the Ministry of Corporate Affairs, Government of India.',
+            subtitle: 'Corporate, commercial & international',
+            summary: 'Structured, confidential mediation that helps parties settle corporate, commercial and contractual disputes.',
             points: [
-              'Corporate & commercial mediator, Ministry of Corporate Affairs — Cochin, Chennai, Bangalore and Hyderabad regions',
-              'Certified International Mediator — ODR Latinoamérica / International Mediation Institute (IMI), Netherlands, 2025',
-              'Professional Commercial Mediator — Indian Institute of Corporate Affairs (IICA), New Delhi',
-              'Panel Mediator — Track Second ADR platform, Noida',
-              'Corporate, contractual and multi-party disputes, including matters under the Companies Act, 2013',
+              'Joint and private sessions with each party',
+              'Identifying the real issues behind each side’s position',
+              'Negotiation and settlement-oriented discussion',
+              'Multi-party disputes and matters under the Companies Act, 2013',
+              'Online sessions for parties in different places',
             ],
             facts: [
-              { label: 'Certified', value: 'IMI · IICA' },
-              { label: 'Panel', value: 'Ministry of Corporate Affairs' },
-              { label: 'Regions', value: 'Cochin · Chennai · Bangalore · Hyderabad' },
-              { label: 'Qualification', value: 'PGDADR, NALSAR' },
+              { label: 'Approach', value: 'Empathy · Dialogue · Understanding' },
+              { label: 'Languages', value: 'Malayalam · English · Hindi' },
             ],
           },
           {
             title: 'Arbitrator',
-            subtitle: 'NSE & BSE, Cochin region',
-            summary:
-              'Empanelled arbitrator with the National Stock Exchange of India (NSE) and BSE for the Cochin region since February 2017.',
+            subtitle: 'Securities & commercial',
+            summary: 'Arbitration of disputes between investors, trading members and businesses, under the applicable exchange rules and procedures.',
             points: [
-              'Commercial, financial and securities-related disputes under NSE and BSE rules and procedures',
               'Review of trading records, contracts, documentary evidence and party submissions',
-              'Arbitration hearings on claims and counterclaims',
+              'Hearings on claims and counterclaims',
               'Reasoned arbitral awards under the Arbitration and Conciliation Act, 1996',
             ],
             facts: [
-              { label: 'Panels', value: 'NSE · BSE' },
-              { label: 'Region', value: 'Cochin' },
-              { label: 'Since', value: 'February 2017' },
-              { label: 'Law', value: 'Arbitration and Conciliation Act, 1996' },
+              { label: 'Empanelled since', value: 'February 2017' },
+              { label: 'Disputes', value: 'Commercial · Financial · Securities' },
             ],
           },
           {
             title: 'Social Activist',
             subtitle: 'Development, rights & education',
-            summary:
-              'Alongside legal practice, works on sustainable development, human rights and education in Kerala and beyond.',
+            summary: 'Work on sustainable development, human rights and education, in Kerala and beyond.',
             points: [
               'UN Sustainable Development Goals campaigner; delegate to the UN Global Meeting on Sustainable Development, Bonn, 2019',
               'Human rights activist; International Member, Amnesty International',
@@ -169,11 +152,7 @@ export const siteContent: SiteContent = {
               'Former National Vice President — National Lawyers Campaign for Judicial Transparency and Reforms',
               'Member — United Nations Millennium Campaign',
             ],
-            facts: [
-              { label: 'Focus', value: 'Development · Human rights · Education' },
-              { label: 'School', value: 'Al Ameen Public School, Pathanapuram' },
-              { label: 'UN engagement', value: 'SDG campaigner · Bonn 2019' },
-            ],
+            facts: [],
           },
         ],
       },
@@ -184,7 +163,7 @@ export const siteContent: SiteContent = {
       attribution: 'Adv. M.A. Jabbar',
       image: {
         src: '/images/quote-portrait-hands-on-hips-2f24cac2.jpg',
-        alt: 'Adv. M.A. Jabbar',
+        alt: 'Adv. M.A. Jabbar, smiling, hands on hips',
         width: 1000,
         height: 1037,
       },
@@ -195,10 +174,10 @@ export const siteContent: SiteContent = {
       heading: 'Dispute resolution,\nin and out of court',
       intro: 'The list below is for information only. Please contact the chambers to discuss whether a specific matter can be taken up.',
       areas: [
-        { title: 'High Court Litigation', description: 'Civil, criminal and constitutional matters before the High Court of Kerala.' },
+        { title: 'High Court Litigation', description: 'Civil, criminal and constitutional matters.' },
         { title: 'Corporate & Commercial Mediation', description: 'Corporate, contractual and business disputes, including matters under the Companies Act, 2013.' },
         { title: 'International Mediation', description: 'Structured, confidential mediation between parties in different places, including online sessions.' },
-        { title: 'Securities Arbitration', description: 'Investor and trading-member disputes under the NSE and BSE arbitration mechanism.' },
+        { title: 'Securities Arbitration', description: 'Investor and trading-member disputes in the securities market.' },
         { title: 'Commercial Arbitration', description: 'Ad hoc and institutional arbitration under the Arbitration and Conciliation Act, 1996.' },
         { title: 'Pre-Institution Mediation', description: 'Mediation required before filing a commercial suit, under Section 12A of the Commercial Courts Act.' },
         { title: 'Legal Drafting & Opinions', description: 'Pleadings, petitions, affidavits, legal submissions and legal opinions.' },
@@ -211,7 +190,7 @@ export const siteContent: SiteContent = {
       attribution: 'Adv. M.A. Jabbar',
       image: {
         src: '/images/quote2-portrait-headshot-front-104fbce5.jpg',
-        alt: 'Adv. M.A. Jabbar',
+        alt: 'Head-and-shoulders portrait of Adv. M.A. Jabbar',
         width: 1000,
         height: 787,
       },
@@ -219,13 +198,14 @@ export const siteContent: SiteContent = {
 
     panels: {
       eyebrow: 'Panels, Certifications & Forums',
+      // The single list of credentials (with the hero lead, the only places they appear).
       items: [
         'Advocate — High Court of Kerala',
-        'Life Member — KHCAA',
-        'Arbitrator Panel — NSE, Cochin',
-        'Arbitrator Panel — BSE, Cochin',
-        'Corporate Mediator — Ministry of Corporate Affairs',
-        'Certified International Mediator — IMI',
+        'Life Member — Kerala High Court Advocates’ Association (KHCAA), Ernakulam',
+        'Member — Punalur Bar Association, Punalur, Kollam',
+        'Arbitrator Panel — NSE & BSE, Cochin, since 2017',
+        'Corporate Mediator — Ministry of Corporate Affairs: Cochin, Chennai, Bangalore, Hyderabad',
+        'Certified International Mediator — IMI, through ODR Latinoamérica, 2025',
         'Commercial Mediator — IICA',
         'Panel Mediator — Track Second, Noida',
         // TODO: confirm exact title with client (CV: "Mediator – Nivaaran, Supreme Court of India Mediation Centre")
@@ -246,8 +226,9 @@ export const siteContent: SiteContent = {
 
     beyond: {
       eyebrow: 'Beyond the Courtroom',
-      heading: 'Public service &\nsocial engagement',
-      body: 'Alongside his legal work, Adv. M.A. Jabbar is a UN Sustainable Development Goals campaigner and human rights activist, and founded a school in Pathanapuram. From 1989 to 2018 he served the Government of Kerala as District Ophthalmic Co-ordinator under the National Programme for Control of Blindness.',
+      heading: 'Public service',
+      // Public-service record only; his activism is listed in the Social Activist role tab.
+      body: 'Before and alongside his legal work, Adv. M.A. Jabbar has served in public health, disaster management and civic programmes. For nearly three decades he coordinated district eye-care programmes for the Government of Kerala.',
       image: {
         src: '/images/bw-portrait-seated-ba7f1e8f.jpg',
         alt: 'Black-and-white portrait of Adv. M.A. Jabbar',
@@ -255,13 +236,9 @@ export const siteContent: SiteContent = {
         height: 1534,
       },
       timeline: [
-        'Delegate — United Nations Global Meeting on Sustainable Development, Bonn, Germany',
+        'District Ophthalmic Co-ordinator — Government of Kerala, National Programme for Control of Blindness',
         'Coordinator — State Disaster Management wireless communications, Sabarimala',
         'Representative of Amnesty International India — People’s Budget Programme, New Delhi',
-        // TODO: confirm trust name spelling ("Al Aman" in client notes)
-        'Founder & Secretary — Al Aman Educational and Charitable Trust and Al Ameen Public School (CBSE), Pathanapuram',
-        'Former National Vice President — National Lawyers Campaign for Judicial Transparency and Reforms',
-        'Member — United Nations Millennium Campaign · International Member — Amnesty International',
         'Former Regional Project Manager & Additional Cabinet Secretary — Lions Clubs International, District 324E-1',
       ],
     },
@@ -273,7 +250,7 @@ export const siteContent: SiteContent = {
       matterOptions: [
         'High Court matter (civil / criminal / constitutional)',
         'Corporate or commercial mediation',
-        'Securities arbitration (NSE / BSE)',
+        'Securities arbitration',
         'Commercial arbitration',
         'Legal drafting or opinion',
         'Other',

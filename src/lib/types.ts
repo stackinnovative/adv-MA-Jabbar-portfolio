@@ -78,7 +78,6 @@ export type HomePage = {
     subtitle: string;
     bio: string[];
     portrait: ImageRef;
-    facts: { label: string; value: string }[];
     roles: { eyebrow: string; heading: string; items: Role[] };
   };
   /** Quote band after About. */
