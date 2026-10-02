@@ -25,7 +25,10 @@ export const siteContent: SiteContent = {
         'Advocate, High Court of Kerala. Certified mediator (IMI, IICA) and empanelled arbitrator (NSE, BSE). Chambers at Ernakulam and Punalur.',
       ogImage: '/images/og.jpg',
     },
-    phone: { href: 'tel:+919447009556', display: '+91 94470 09556' },
+    phones: [
+      { href: 'tel:+919447009556', display: '+91 94470 09556' },
+      { href: 'tel:+917907694622', display: '+91 79076 94622' },
+    ],
     email: 'vu3jbr@gmail.com',
     // TODO: confirm chamber hours (same for both offices?)
     hours: 'Mon – Sat, 10:00 am – 6:00 pm',

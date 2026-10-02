@@ -38,7 +38,8 @@ export type SiteSettings = {
   /** Malayalam tagline shown in the top bar and footer. */
   taglineMl: string;
   seo: { title: string; description: string; ogDescription: string; ogImage: string };
-  phone: { href: string; display: string };
+  /** Phone numbers, in display order (first = main number). */
+  phones: { href: string; display: string }[];
   email: string;
   hours: string;
   hoursNote: string;

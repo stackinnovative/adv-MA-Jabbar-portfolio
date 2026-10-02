@@ -41,19 +41,29 @@ export const siteSettings = defineType({
       ],
     }),
     defineField({
-      name: 'phone',
-      type: 'object',
+      name: 'phones',
+      title: 'Phone numbers',
+      type: 'array',
       group: 'contact',
-      fields: [
-        defineField({
-          name: 'href',
-          title: 'Phone link',
-          type: 'string',
-          description: 'Format: tel:+919447009556',
-          validation: (r) => r.required().regex(/^tel:\+\d{8,15}$/, { name: 'tel: link' }),
+      description: 'Shown everywhere a number appears (top bar, Contact, footer). The first is the main number.',
+      of: [
+        defineArrayMember({
+          name: 'phone',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'href',
+              title: 'Phone link',
+              type: 'string',
+              description: 'Format: tel:+919447009556',
+              validation: (r) => r.required().regex(/^tel:\+\d{8,15}$/, { name: 'tel: link' }),
+            }),
+            defineField({ name: 'display', title: 'Shown as', type: 'string', validation: (r) => r.required() }),
+          ],
+          preview: { select: { title: 'display' } },
         }),
-        defineField({ name: 'display', title: 'Shown as', type: 'string', validation: (r) => r.required() }),
       ],
+      validation: (r) => r.required().min(1),
     }),
     defineField({ name: 'email', type: 'string', group: 'contact', validation: (r) => r.required().email() }),
     defineField({ name: 'hours', title: 'Chamber hours', type: 'string', group: 'contact' }),

@@ -22,7 +22,7 @@ export default async function HomePage() {
     name: settings.fullName.replace(/^Adv\.\s*/, ''),
     alternateName: settings.name,
     jobTitle: 'Advocate, Mediator & Arbitrator',
-    telephone: settings.phone.href.replace('tel:', ''),
+    telephone: settings.phones.map((p) => p.href.replace('tel:', '')),
     email: settings.email,
     alumniOf: [
       { '@type': 'CollegeOrUniversity', name: 'NALSAR University of Law, Hyderabad' },

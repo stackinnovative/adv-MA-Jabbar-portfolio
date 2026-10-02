@@ -37,7 +37,11 @@ export function Footer({ settings, disclaimer }: { settings: SiteSettings; discl
                   ))}
                 </address>
               ))}
-              <a href={settings.phone.href}>{settings.phone.display}</a>
+              {settings.phones.map((p) => (
+                <a key={p.href} href={p.href}>
+                  {p.display}
+                </a>
+              ))}
               <a href={`mailto:${settings.email}`}>{settings.email}</a>
             </div>
           </div>

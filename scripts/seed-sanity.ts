@@ -47,6 +47,7 @@ async function main() {
       ...settings,
       seo: { ...settings.seo, ogImage: imageRef(await uploadImage(settings.seo.ogImage)) },
       offices: members('office', settings.offices),
+      phones: members('phone', settings.phones),
       mapEmbedUrl: settings.mapEmbedUrl || undefined,
       formEndpoint: settings.formEndpoint || undefined,
     },

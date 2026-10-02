@@ -30,8 +30,12 @@ export function Contact({ contact, settings }: { contact: HomePage['contact']; s
             <div>
               <dt>Phone &amp; Email</dt>
               <dd>
-                <a href={settings.phone.href}>{settings.phone.display}</a>
-                <br />
+                {settings.phones.map((p) => (
+                  <span key={p.href}>
+                    <a href={p.href}>{p.display}</a>
+                    <br />
+                  </span>
+                ))}
                 <a href={mailto}>{settings.email}</a>
               </dd>
             </div>
@@ -45,10 +49,12 @@ export function Contact({ contact, settings }: { contact: HomePage['contact']; s
             </div>
           </dl>
           <div className="contact__quick">
-            <a className="btn btn--dark" href={settings.phone.href}>
-              Call
-            </a>
-            <a className="btn btn--dark" href={mailto}>
+            {settings.phones.map((p) => (
+              <a key={p.href} className="btn btn--dark" href={p.href} aria-label={`Call ${p.display}`}>
+                Call {p.display.replace(/^\+91\s*/, '')}
+              </a>
+            ))}
+            <a className="btn btn--dark contact__quick-email" href={mailto}>
               Email
             </a>
           </div>
