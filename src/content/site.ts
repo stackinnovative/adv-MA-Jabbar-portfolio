@@ -82,7 +82,7 @@ export const siteContent: SiteContent = {
 
     about: {
       name: 'Abdul Jabbarudeen M.',
-      subtitle: 'Also known as Adv. M.A. Jabbar',
+      subtitle: 'Advocate · Mediator · Arbitrator · Social Activist',
       // Personal narrative only. Credentials are in the hero lead and the Panels list,
       // and the work itself is in the role tabs below.
       bio: [

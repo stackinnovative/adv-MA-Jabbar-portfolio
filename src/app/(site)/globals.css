@@ -233,9 +233,10 @@ p { margin: 0; }
 .steps p { font-size: 16px; color: var(--muted); }
 
 /* Beyond */
-.beyond { display: flex; gap: 80px; align-items: center; }
+/* Desktop: text on the left, photo on the right (frame offset up-right). Phones stack (see 900px block). */
+.beyond { display: flex; flex-direction: row-reverse; gap: 80px; align-items: center; }
 .beyond__photo { position: relative; width: 460px; flex-shrink: 0; }
-.beyond__photo::before { content: ''; position: absolute; inset: -22px 22px 22px -22px; border: 1px solid var(--kasavu); }
+.beyond__photo::before { content: ''; position: absolute; inset: -22px -22px 22px 22px; border: 1px solid var(--kasavu); }
 .beyond__photo img { position: relative; width: 100%; height: auto; }
 .beyond__copy { display: flex; flex-direction: column; gap: 24px; }
 .beyond__copy > p { font-size: 17px; line-height: 1.7; color: var(--ink-2); }
