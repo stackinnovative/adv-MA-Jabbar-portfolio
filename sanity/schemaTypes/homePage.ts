@@ -182,6 +182,7 @@ export const homePage = defineType({
       fields: [
         defineField({ name: 'eyebrow', type: 'string' }),
         defineField({ name: 'heading', type: 'string' }),
+        defineField({ name: 'note', title: 'Line under the heading', type: 'string', description: 'e.g. "By prior appointment only".' }),
         defineField({ name: 'formHeading', type: 'string' }),
         defineField({ name: 'matterOptions', title: '"Type of matter" options', type: 'array', of: [defineArrayMember({ type: 'string' })] }),
         defineField({

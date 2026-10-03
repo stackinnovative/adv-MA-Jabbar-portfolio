@@ -87,7 +87,7 @@ export const siteContent: SiteContent = {
       // and the work itself is in the role tabs below.
       bio: [
         'Adv. Abdul Jabbarudeen M. is an advocate, mediator and arbitrator in Kerala, and a social activist. He is a certified commercial mediator of the Indian Institute of Corporate Affairs (IICA). His approach to mediation rests on empathy, dialogue and understanding — helping parties move from conflict to cooperation.',
-        'He holds an LL.M. and an LL.B. from Mahatma Gandhi University, Kottayam, and a Post Graduate Diploma in Alternative Dispute Resolution from NALSAR University of Law, Hyderabad. He also holds a B.Sc. in Zoology from the University of Kerala and a Post Graduate Diploma in Journalism (PGDJ) from the School of Communication and Management Studies (SCMS), Cochin.',
+        'He holds an LL.M. and an LL.B. from Mahatma Gandhi University, Kottayam, and a Post Graduate Diploma in Alternative Dispute Resolution(PGADR) from NALSAR University of Law, Hyderabad. He also holds a B.Sc. in Zoology from the University of Kerala and a Post Graduate Diploma in Journalism (PGDJ) from the School of Communication and Management Studies (SCMS), Cochin.',
       ],
       portrait: {
         src: '/images/about-portrait-headshot-left-607a508f.jpg',
@@ -252,6 +252,7 @@ export const siteContent: SiteContent = {
     contact: {
       eyebrow: 'Contact',
       heading: 'Visit the chambers',
+      note: 'By prior appointment only',
       formHeading: 'Send an enquiry',
       matterOptions: [
         'High Court matter (civil / criminal / constitutional)',

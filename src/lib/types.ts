@@ -107,6 +107,8 @@ export type HomePage = {
   contact: {
     eyebrow: string;
     heading: string;
+    /** Short line under the heading, e.g. "By prior appointment only". */
+    note: string;
     formHeading: string;
     matterOptions: string[];
     consentText: string;

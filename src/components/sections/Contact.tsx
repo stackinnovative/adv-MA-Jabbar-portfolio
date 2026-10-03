@@ -7,7 +7,10 @@ export function Contact({ contact, settings }: { contact: HomePage['contact']; s
       <div className="container contact">
         <div className="contact__info">
           <div className="eyebrow">{contact.eyebrow}</div>
-          <h2 className="h2">{contact.heading}</h2>
+          <div className="contact__head">
+            <h2 className="h2">{contact.heading}</h2>
+            {contact.note && <p className="contact__note">{contact.note}</p>}
+          </div>
           <dl className="contact__list">
             {settings.offices.map((office) => (
               <div key={office.label}>
@@ -47,8 +50,6 @@ export function Contact({ contact, settings }: { contact: HomePage['contact']; s
               <dt>Chamber hours</dt>
               <dd>
                 {settings.hours}
-                <br />
-                {settings.hoursNote}
               </dd>
             </div>
           </dl>

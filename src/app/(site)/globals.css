@@ -233,10 +233,9 @@ p { margin: 0; }
 .steps p { font-size: 16px; color: var(--muted); }
 
 /* Beyond */
-/* Desktop: text on the left, photo on the right (frame offset up-right). Phones stack (see 900px block). */
-.beyond { display: flex; flex-direction: row-reverse; gap: 80px; align-items: center; }
+.beyond { display: flex; gap: 80px; align-items: center; }
 .beyond__photo { position: relative; width: 460px; flex-shrink: 0; }
-.beyond__photo::before { content: ''; position: absolute; inset: -22px -22px 22px 22px; border: 1px solid var(--kasavu); }
+.beyond__photo::before { content: ''; position: absolute; inset: -22px 22px 22px -22px; border: 1px solid var(--kasavu); }
 .beyond__photo img { position: relative; width: 100%; height: auto; }
 .beyond__copy { display: flex; flex-direction: column; gap: 24px; }
 .beyond__copy > p { font-size: 17px; line-height: 1.7; color: var(--ink-2); }
@@ -250,6 +249,8 @@ p { margin: 0; }
 .contact__list dt { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-dk); }
 .contact__list dd { margin: 4px 0 0; }
 .contact__map-link { display: inline-block; margin-top: 6px; font-size: 14px; font-weight: 600; }
+.contact__head { display: flex; flex-direction: column; gap: 10px; }
+.contact__note { font: italic 500 20px/1.3 var(--f-display); color: var(--maroon); }
 .contact__quick { display: none; }
 .contact__quick-addr { text-transform: none; letter-spacing: .02em; }
 .map { height: 220px; border: 1px solid var(--line-2); background: #EDE6D6; }
