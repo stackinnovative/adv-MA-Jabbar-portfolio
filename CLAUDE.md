@@ -90,7 +90,9 @@ Indian advocates may not advertise or solicit work. The site may only state fact
 
 ## Suggested next tasks
 1. Finish Sanity setup (steps above) and invite the client.
-2. Connect the form endpoint and test it.
+2. Connect the form endpoint and test it. Configure the service to deliver to `settings.enquiryEmail`
+   (vu3jbr@gmail.com). Until then the form opens the visitor's email app addressed to that inbox.
+   Public emails shown on the site: `settings.emails` (vu3jbr@gmail.com, then majabbaradv@gmail.com).
 3. Add a floating WhatsApp button (`https://wa.me/919447009556`) on mobile.
 4. Add `src/app/icon.svg` (scales icon from the header), `robots.ts`, `sitemap.ts`.
 5. Lighthouse pass: aim for 95+ on performance and accessibility.

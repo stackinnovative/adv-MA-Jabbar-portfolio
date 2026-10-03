@@ -23,7 +23,7 @@ export default async function HomePage() {
     alternateName: settings.name,
     jobTitle: 'Advocate, Mediator & Arbitrator',
     telephone: settings.phones.map((p) => p.href.replace('tel:', '')),
-    email: settings.email,
+    email: settings.emails,
     alumniOf: [
       { '@type': 'CollegeOrUniversity', name: 'NALSAR University of Law, Hyderabad' },
       { '@type': 'CollegeOrUniversity', name: 'Mahatma Gandhi University, Kottayam' },

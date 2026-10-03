@@ -21,7 +21,20 @@ export function Topbar({ settings }: { settings: SiteSettings }) {
               {p.display}
             </a>
           ))}
-          <a href={`mailto:${settings.email}`}>{settings.email}</a>
+          {settings.emails.map((e) => (
+            <a key={e} href={`mailto:${e}`}>
+              {e}
+            </a>
+          ))}
+        </div>
+        {/* Phones only (CSS): quick actions under the hours. */}
+        <div className="topbar__actions">
+          {settings.phones[0] && (
+            <a href={settings.phones[0].href} aria-label={`Call ${settings.phones[0].display}`}>
+              Call
+            </a>
+          )}
+          <a href="#enquiry">Send an enquiry</a>
         </div>
       </div>
     </div>

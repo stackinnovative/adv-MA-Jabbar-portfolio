@@ -40,7 +40,10 @@ export type SiteSettings = {
   seo: { title: string; description: string; ogDescription: string; ogImage: string };
   /** Phone numbers, in display order (first = main number). */
   phones: { href: string; display: string }[];
-  email: string;
+  /** Public emails, in display order (first = main number's counterpart). */
+  emails: string[];
+  /** Inbox that receives enquiry-form messages (not displayed). */
+  enquiryEmail: string;
   hours: string;
   hoursNote: string;
   offices: Office[];

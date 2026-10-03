@@ -2,7 +2,6 @@ import { EnquiryForm } from '@/components/EnquiryForm';
 import type { HomePage, SiteSettings } from '@/lib/types';
 
 export function Contact({ contact, settings }: { contact: HomePage['contact']; settings: SiteSettings }) {
-  const mailto = `mailto:${settings.email}`;
   return (
     <section className="section" id="contact">
       <div className="container contact">
@@ -36,7 +35,12 @@ export function Contact({ contact, settings }: { contact: HomePage['contact']; s
                     <br />
                   </span>
                 ))}
-                <a href={mailto}>{settings.email}</a>
+                {settings.emails.map((e, i) => (
+                  <span key={e}>
+                    {i > 0 && <br />}
+                    <a href={`mailto:${e}`}>{e}</a>
+                  </span>
+                ))}
               </dd>
             </div>
             <div>
@@ -54,9 +58,11 @@ export function Contact({ contact, settings }: { contact: HomePage['contact']; s
                 Call {p.display.replace(/^\+91\s*/, '')}
               </a>
             ))}
-            <a className="btn btn--dark contact__quick-email" href={mailto}>
-              Email
-            </a>
+            {settings.emails.map((e) => (
+              <a key={e} className="btn btn--dark" href={`mailto:${e}`} aria-label={`Email ${e}`}>
+                Email <span className="contact__quick-addr">{e}</span>
+              </a>
+            ))}
           </div>
           {settings.mapEmbedUrl ? (
             <div className="map">
@@ -77,6 +83,7 @@ export function Contact({ contact, settings }: { contact: HomePage['contact']; s
           matterOptions={contact.matterOptions}
           consentText={contact.consentText}
           endpoint={settings.formEndpoint}
+          enquiryEmail={settings.enquiryEmail}
         />
       </div>
     </section>

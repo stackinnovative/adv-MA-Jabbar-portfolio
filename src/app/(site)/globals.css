@@ -66,11 +66,12 @@ p { margin: 0; }
 .topbar { background: var(--ink); color: #D9CFBD; font-size: 13px; }
 .topbar .container { height: 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .topbar__group { display: flex; gap: 20px; align-items: center; white-space: nowrap; }
-@media (max-width: 1200px) { .topbar__note { display: none; } }
+@media (max-width: 1365px) { .topbar__note { display: none; } }
 @media (max-width: 1100px) { .topbar__tagline { display: none; } }
 .topbar__sep { color: #6E6456; }
 .topbar .ml { color: var(--gold); }
 .topbar a { color: inherit; text-decoration: none; }
+.topbar__actions { display: none; }
 
 /* Header / nav */
 .header { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--line); }
@@ -242,20 +243,21 @@ p { margin: 0; }
 .timeline li { padding: 16px 0; border-bottom: 1px solid var(--line-2); }
 
 /* Contact */
-.contact { display: grid; grid-template-columns: 5fr 1fr 6fr; gap: 24px; }
+.contact { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 1fr) minmax(0, 6fr); gap: 24px; }
 .contact__info { display: flex; flex-direction: column; gap: 28px; }
 .contact__list { display: flex; flex-direction: column; gap: 22px; font-size: 17px; color: var(--ink-2); }
 .contact__list dt { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-dk); }
 .contact__list dd { margin: 4px 0 0; }
 .contact__map-link { display: inline-block; margin-top: 6px; font-size: 14px; font-weight: 600; }
 .contact__quick { display: none; }
+.contact__quick-addr { text-transform: none; letter-spacing: .02em; }
 .map { height: 220px; border: 1px solid var(--line-2); background: #EDE6D6; }
 .map iframe { width: 100%; height: 100%; border: 0; }
 .form { grid-column: 3; display: flex; flex-direction: column; gap: 22px; padding: 48px; background: #fff; border: 1px solid var(--line); align-self: start; }
 .form h3 { font-size: 26px; }
-.form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.form__row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; }
 .field { display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600; color: var(--ink-2); }
-.field input, .field select, .field textarea { font: 16px var(--f-body); padding: 12px 14px; min-height: 48px; border: 1px solid var(--soft); background: var(--paper); color: var(--ink); border-radius: 0; }
+.field input, .field select, .field textarea { width: 100%; min-width: 0; font: 16px var(--f-body); padding: 12px 14px; min-height: 48px; border: 1px solid var(--soft); background: var(--paper); color: var(--ink); border-radius: 0; }
 .field textarea { resize: vertical; }
 .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--maroon); outline: none; }
 .check { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; color: var(--muted); }
@@ -316,7 +318,17 @@ html[data-disclaimer="pending"] body { overflow: hidden; }
 @media (max-width: 900px) {
   :root { --gutter: 16px; }
   html { scroll-padding-top: 84px; }
-  .topbar { display: none; }
+  /* Compact bar on phones: chamber hours + appointment note only, stacked and centred.
+     Phone numbers and email are in the Contact call buttons and the footer. */
+  .topbar { font-size: 12px; }
+  .topbar .container { height: auto; padding-block: 10px; flex-direction: column; align-items: stretch; gap: 10px; }
+  .topbar__actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .topbar__actions a { min-height: 44px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(201, 162, 74, .55); color: var(--ivory); font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+  .topbar__actions a:first-child { background: var(--maroon); border-color: var(--maroon); }
+  .topbar__group { flex-direction: column; gap: 2px; white-space: normal; text-align: center; }
+  .topbar__group + .topbar__group { display: none; }
+  .topbar__sep { display: none; }
+  .topbar__note:not(.topbar__sep) { display: block; color: var(--gold); }
   .header .container { height: auto; min-height: 68px; padding-block: 10px; gap: 12px; }
   .brand { gap: 10px; }
   .brand__mark { width: 38px; height: 38px; }

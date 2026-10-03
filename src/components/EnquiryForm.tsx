@@ -8,9 +8,26 @@ type Props = {
   consentText: string;
   /** Formspree / Web3Forms / own API. Set in settings (later: Sanity). */
   endpoint: string;
+  /** Inbox for enquiries; used as an email fallback while no endpoint is set. */
+  enquiryEmail: string;
 };
 
-export function EnquiryForm({ heading, matterOptions, consentText, endpoint }: Props) {
+/** Opens the visitor's email app with the enquiry pre-filled. */
+function openEmailDraft(to: string, data: FormData) {
+  const field = (k: string) => String(data.get(k) ?? '').trim();
+  const subject = `Website enquiry: ${field('matter') || 'General'} — ${field('name')}`;
+  const body = [
+    `Name: ${field('name')}`,
+    `Phone: ${field('phone')}`,
+    `Email: ${field('email') || '—'}`,
+    `Type of matter: ${field('matter')}`,
+    '',
+    field('message'),
+  ].join('\n');
+  window.location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+export function EnquiryForm({ heading, matterOptions, consentText, endpoint, enquiryEmail }: Props) {
   const [status, setStatus] = useState('');
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -26,7 +43,9 @@ export function EnquiryForm({ heading, matterOptions, consentText, endpoint }: P
       return;
     }
     if (!endpoint) {
-      setStatus('Form endpoint not set yet (see settings.formEndpoint in src/content/site.ts).');
+      // No form service connected yet: hand the enquiry to the visitor's email app.
+      openEmailDraft(enquiryEmail, data);
+      setStatus('Your email app should open with the enquiry ready to send. If it does not, please call the chambers.');
       return;
     }
     setStatus('Sending…');

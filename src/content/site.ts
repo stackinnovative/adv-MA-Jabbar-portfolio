@@ -20,7 +20,7 @@ export const siteContent: SiteContent = {
     seo: {
       title: 'Adv. M.A. Jabbar — Advocate, Mediator & Arbitrator | High Court of Kerala',
       description:
-        'Adv. M.A. Jabbar (Abdul Jabbarudeen M.) — advocate at the High Court of Kerala, IMI and IICA certified mediator, corporate mediator with the Ministry of Corporate Affairs, and empanelled arbitrator with NSE and BSE. Chambers at Ernakulam and Punalur.',
+        'Adv. M.A. Jabbar (Abdul Jabbarudeen M.) — advocate at the High Court of Kerala, IMI and IICA certified mediator, corporate mediator with the Ministry of Corporate Affairs - Govt Of India, and empanelled arbitrator with NSE and BSE. Chambers at Ernakulam and Punalur.',
       ogDescription:
         'Advocate, High Court of Kerala. Certified mediator (IMI, IICA) and empanelled arbitrator (NSE, BSE). Chambers at Ernakulam and Punalur.',
       ogImage: '/images/og.jpg',
@@ -29,7 +29,10 @@ export const siteContent: SiteContent = {
       { href: 'tel:+919447009556', display: '+91 94470 09556' },
       { href: 'tel:+917907694622', display: '+91 79076 94622' },
     ],
-    email: 'vu3jbr@gmail.com',
+    // Public emails, in display order (first = main): top bar, Contact, footer, structured data.
+    emails: ['vu3jbr@gmail.com', 'majabbaradv@gmail.com'],
+    // Where enquiry-form messages go. Not shown on the site.
+    enquiryEmail: 'vu3jbr@gmail.com',
     // TODO: confirm chamber hours (same for both offices?)
     hours: 'Mon – Sat, 10:00 am – 6:00 pm',
     hoursNote: 'Mediation sessions by prior appointment',
@@ -59,14 +62,14 @@ export const siteContent: SiteContent = {
     hero: {
       kicker: 'Kerala · Mediation · Arbitration',
       heading: 'Turning conflict\ninto *cooperation*,\nthrough dialogue.',
-      lead: 'Advocate at the High Court of Kerala. IMI and IICA certified mediator, corporate mediator with the Ministry of Corporate Affairs, and empanelled arbitrator with NSE and BSE.',
+      lead: 'Advocate at the High Court of Kerala. IMI and Indian Institute of corporate Affairs(IICA) certified mediator, Corporate mediator with the Ministry of Corporate Affairs(Govt Of India), and empanelled arbitrator with NSE and BSE.',
       image: {
         src: '/images/hero-portrait-seated-side-f041633c.jpg',
         alt: 'Adv. M.A. Jabbar, seated, in a dark suit',
         width: 1400,
         height: 1800,
       },
-      badge: { label: 'Chambers', value: 'Ernakulam · Punalur' },
+      badge: { label: 'Chambers', value: 'Ernakulam & Punalur' },
       // Kinds of work only — credentials live in the lead above and in the Panels list
       // (keep every fact to at most two mentions on the page).
       highlights: [
@@ -83,7 +86,7 @@ export const siteContent: SiteContent = {
       // Personal narrative only. Credentials are in the hero lead and the Panels list,
       // and the work itself is in the role tabs below.
       bio: [
-        'Adv. Abdul Jabbarudeen M. is an advocate, mediator and arbitrator in Kerala, and a social activist. His approach to mediation rests on empathy, dialogue and understanding — helping parties move from conflict to cooperation.',
+        'Adv. Abdul Jabbarudeen M. is an advocate, mediator and arbitrator in Kerala, and a social activist. He is a certified commercial mediator of the Indian Institute of Corporate Affairs (IICA). His approach to mediation rests on empathy, dialogue and understanding — helping parties move from conflict to cooperation.',
         'He holds an LL.M. and an LL.B. from Mahatma Gandhi University, Kottayam, and a Post Graduate Diploma in Alternative Dispute Resolution from NALSAR University of Law, Hyderabad. He also holds a B.Sc. in Zoology from the University of Kerala and a Post Graduate Diploma in Journalism (PGDJ) from the School of Communication and Management Studies (SCMS), Cochin.',
       ],
       portrait: {
@@ -209,7 +212,7 @@ export const siteContent: SiteContent = {
         'Arbitrator Panel — NSE & BSE, Cochin, since 2017',
         'Corporate Mediator — Ministry of Corporate Affairs: Cochin, Chennai, Bangalore, Hyderabad',
         'Certified International Mediator — IMI, through ODR Latinoamérica, 2025',
-        'Commercial Mediator — IICA',
+        'Commercial Mediator — Indian Institute of corporate Affairs(IICA)',
         'Panel Mediator — Track Second, Noida',
         // TODO: confirm exact title with client (CV: "Mediator – Nivaaran, Supreme Court of India Mediation Centre")
         'Mediator — Nivaaran',
@@ -280,7 +283,7 @@ export const siteContent: SiteContent = {
       'This website is maintained by Adv. M.A. Jabbar (Abdul Jabbarudeen M.), No. 253, KHCAA Chamber Complex, Near High Court, Ernakulam, Kerala – 682031.',
       'When you send an enquiry through the form on this website, the chambers receive your name, phone number, email address (if given), the type of matter and your message.',
       'This information is used only to respond to your enquiry. It is not sold, and it is not shared with anyone other than the service that delivers form messages to the chambers.',
-      'Enquiries are kept only as long as needed to respond and to meet professional obligations. To ask for your information to be corrected or deleted, write to vu3jbr@gmail.com.',
+      'Enquiries are kept only as long as needed to respond and to meet professional obligations. To ask for your information to be corrected or deleted, write to vu3jbr@gmail.com or majabbaradv@gmail.com.',
       'This website does not use advertising or tracking cookies. It stores one setting in your browser to remember that you have read the disclaimer.',
     ],
   },
