@@ -46,7 +46,7 @@ export const siteContent: SiteContent = {
       {
         label: 'Punalur, Kollam',
         lines: ['Adv. M.A. Jabbar · Law Relief', 'Room No. 9, GKP Tower, Near Court Complex', 'Chemmanthoor, Punalur, Kollam', 'Kerala – 691305'],
-        footerLines: ['Room No. 9, GKP Tower, Near Court Complex', 'Chemmanthoor, Punalur, Kollam'],
+        footerLines: ['Law Relief', 'Room No. 9, GKP Tower, Near Court Complex', 'Chemmanthoor, Punalur, Kollam'],
         mapUrl: 'https://www.google.com/maps/search/?api=1&query=GKP+Tower+Chemmanthoor+Punalur+691305',
       },
     ],
@@ -86,8 +86,8 @@ export const siteContent: SiteContent = {
       // Personal narrative only. Credentials are in the hero lead and the Panels list,
       // and the work itself is in the role tabs below.
       bio: [
-        'Adv. Abdul Jabbarudeen M. is an advocate, mediator and arbitrator in Kerala, and a social activist. He is a certified commercial mediator of the Indian Institute of Corporate Affairs (IICA). His approach to mediation rests on empathy, dialogue and understanding — helping parties move from conflict to cooperation.',
-        'He holds an LL.M. and an LL.B. from Mahatma Gandhi University, Kottayam, and a Post Graduate Diploma in Alternative Dispute Resolution(PGADR) from NALSAR University of Law, Hyderabad. He also holds a B.Sc. in Zoology from the University of Kerala and a Post Graduate Diploma in Journalism (PGDJ) from the School of Communication and Management Studies (SCMS), Cochin.',
+        'Adv. Abdul Jabbarudeen M. is an advocate, mediator and arbitrator in Kerala, and a social activist. He is a certified commercial mediator of the Indian Institute of Corporate Affairs (IICA) and an International Mediation Institute (IMI), Netherlands certified international mediator. His approach to mediation rests on empathy, dialogue and understanding — helping parties move from conflict to cooperation.',
+        'He holds an LL.M. and an LL.B. from Mahatma Gandhi University, Kottayam, and a Post Graduate Diploma in Alternative Dispute Resolution (PGADR) from NALSAR University of Law, Hyderabad. He also holds a B.Sc. in Zoology from the University of Kerala and a Post Graduate Diploma in Journalism (PGDJ) from the School of Communication and Management Studies (SCMS), Cochin.',
       ],
       portrait: {
         src: '/images/about-portrait-headshot-left-607a508f.jpg',

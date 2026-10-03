@@ -50,6 +50,8 @@ export function Contact({ contact, settings }: { contact: HomePage['contact']; s
               <dt>Chamber hours</dt>
               <dd>
                 {settings.hours}
+                <br />
+                {settings.hoursNote}
               </dd>
             </div>
           </dl>
