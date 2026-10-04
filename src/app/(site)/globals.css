@@ -266,6 +266,8 @@ p { margin: 0; }
 .check input { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--maroon); flex-shrink: 0; }
 .form__foot { display: flex; justify-content: flex-end; }
 .form__status { font-size: 15px; color: var(--maroon); }
+.form__trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.btn:disabled { opacity: .6; cursor: wait; }
 
 /* Footer */
 .footer { background: var(--ink); color: var(--soft); padding: 72px 0 48px; }

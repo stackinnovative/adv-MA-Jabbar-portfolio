@@ -1,14 +1,17 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 type Props = {
   heading: string;
   matterOptions: string[];
   consentText: string;
-  /** Formspree / Web3Forms / own API. Set in settings (later: Sanity). */
+  /**
+   * Optional external form service (Formspree / Web3Forms). Empty = use the site's
+   * own /api/enquiry route, which sends the email through Resend.
+   */
   endpoint: string;
-  /** Inbox for enquiries; used as an email fallback while no endpoint is set. */
+  /** Inbox for enquiries; used for the email-app fallback if sending fails. */
   enquiryEmail: string;
 };
 
@@ -29,6 +32,34 @@ function openEmailDraft(to: string, data: FormData) {
 
 export function EnquiryForm({ heading, matterOptions, consentText, endpoint, enquiryEmail }: Props) {
   const [status, setStatus] = useState('');
+  const [sending, setSending] = useState(false);
+  const startedAt = useRef(0);
+  useEffect(() => {
+    startedAt.current = Date.now();
+  }, []);
+
+  async function send(data: FormData): Promise<boolean> {
+    if (endpoint) {
+      const res = await fetch(endpoint, { method: 'POST', headers: { Accept: 'application/json' }, body: data });
+      return res.ok;
+    }
+    const field = (k: string) => String(data.get(k) ?? '');
+    const res = await fetch('/api/enquiry', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: field('name'),
+        phone: field('phone'),
+        email: field('email'),
+        matter: field('matter'),
+        message: field('message'),
+        consent: data.get('consent') !== null,
+        company: field('company'), // spam trap
+        startedAt: startedAt.current,
+      }),
+    });
+    return res.ok;
+  }
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -42,21 +73,24 @@ export function EnquiryForm({ heading, matterOptions, consentText, endpoint, enq
       setStatus('Please tick the box to confirm you have read the note.');
       return;
     }
-    if (!endpoint) {
-      // No form service connected yet: hand the enquiry to the visitor's email app.
-      openEmailDraft(enquiryEmail, data);
-      setStatus('Your email app should open with the enquiry ready to send. If it does not, please call the chambers.');
+    setSending(true);
+    setStatus('Sending…');
+    let sent = false;
+    try {
+      sent = await send(data);
+    } catch {
+      sent = false;
+    }
+    setSending(false);
+    if (sent) {
+      form.reset();
+      startedAt.current = Date.now();
+      setStatus('Thank you. Your enquiry has been sent and the chambers will contact you soon.');
       return;
     }
-    setStatus('Sending…');
-    try {
-      const res = await fetch(endpoint, { method: 'POST', headers: { Accept: 'application/json' }, body: data });
-      if (!res.ok) throw new Error(String(res.status));
-      form.reset();
-      setStatus('Thank you. The chambers will contact you soon.');
-    } catch {
-      setStatus('Could not send. Please call or email the chambers directly.');
-    }
+    // Sending not set up yet or failed: hand the enquiry to the visitor's email app instead.
+    openEmailDraft(enquiryEmail, data);
+    setStatus('Your email app should open with the enquiry ready to send. If it does not, please call the chambers.');
   }
 
   return (
@@ -92,12 +126,17 @@ export function EnquiryForm({ heading, matterOptions, consentText, endpoint, enq
         <input type="checkbox" name="consent" required />
         {consentText}
       </label>
+      {/* Spam trap: hidden from people, often filled in by bots. */}
+      <label className="form__trap" aria-hidden="true">
+        Company
+        <input name="company" type="text" tabIndex={-1} autoComplete="off" />
+      </label>
       <p className="form__status" role="status" aria-live="polite">
         {status}
       </p>
       <div className="form__foot">
-        <button className="btn btn--primary" type="submit">
-          Send enquiry
+        <button className="btn btn--primary" type="submit" disabled={sending}>
+          {sending ? 'Sending…' : 'Send enquiry'}
         </button>
       </div>
     </form>
