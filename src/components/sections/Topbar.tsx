@@ -1,3 +1,4 @@
+import { WhatsAppIcon, whatsappHref } from '@/components/WhatsAppLink';
 import type { SiteSettings } from '@/lib/types';
 
 /* Desktop-only bar. On narrower desktops the note and tagline drop out (CSS)
@@ -34,7 +35,12 @@ export function Topbar({ settings }: { settings: SiteSettings }) {
               Call
             </a>
           )}
-          <a href="#enquiry">Send an enquiry</a>
+          <a href={whatsappHref(settings.whatsapp)} target="_blank" rel="noopener noreferrer" aria-label="Enquire on WhatsApp">
+            <WhatsAppIcon size={14} /> WhatsApp
+          </a>
+          <a href="#enquiry" aria-label="Send an enquiry">
+            Enquiry
+          </a>
         </div>
       </div>
     </div>

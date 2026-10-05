@@ -1,4 +1,5 @@
 import { EnquiryForm } from '@/components/EnquiryForm';
+import { whatsappHref } from '@/components/WhatsAppLink';
 import type { HomePage, SiteSettings } from '@/lib/types';
 
 export function Contact({ contact, settings }: { contact: HomePage['contact']; settings: SiteSettings }) {
@@ -87,6 +88,7 @@ export function Contact({ contact, settings }: { contact: HomePage['contact']; s
           consentText={contact.consentText}
           endpoint={settings.formEndpoint}
           enquiryEmail={settings.enquiryEmail}
+          whatsappUrl={whatsappHref(settings.whatsapp)}
         />
       </div>
     </section>

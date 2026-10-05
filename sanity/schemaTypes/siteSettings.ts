@@ -41,6 +41,23 @@ export const siteSettings = defineType({
       ],
     }),
     defineField({
+      name: 'whatsapp',
+      title: 'WhatsApp',
+      type: 'object',
+      group: 'contact',
+      description: 'Used by the WhatsApp buttons (mobile top bar and enquiry form).',
+      fields: [
+        defineField({
+          name: 'number',
+          title: 'WhatsApp number',
+          type: 'string',
+          description: 'Country code + number, digits only, e.g. 919447009556',
+          validation: (r) => r.required().regex(/^\d{10,15}$/, { name: 'digits only' }),
+        }),
+        defineField({ name: 'message', title: 'Pre-filled message', type: 'string', description: 'Keep it neutral (BCI Rule 36).' }),
+      ],
+    }),
+    defineField({
       name: 'phones',
       title: 'Phone numbers',
       type: 'array',

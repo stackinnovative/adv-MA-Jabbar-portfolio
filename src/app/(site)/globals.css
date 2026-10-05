@@ -264,7 +264,10 @@ p { margin: 0; }
 .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--maroon); outline: none; }
 .check { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; color: var(--muted); }
 .check input { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--maroon); flex-shrink: 0; }
-.form__foot { display: flex; justify-content: flex-end; }
+.form__foot { display: flex; justify-content: flex-end; align-items: center; flex-wrap: wrap; gap: 12px; }
+.btn--whatsapp { gap: 10px; border-color: var(--soft); color: var(--ink); background: transparent; }
+.btn--whatsapp svg { color: #1D8F4E; }
+.btn--whatsapp:hover { border-color: #1D8F4E; color: var(--ink); }
 .form__status { font-size: 15px; color: var(--maroon); }
 .form__trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .btn:disabled { opacity: .6; cursor: wait; }
@@ -326,8 +329,8 @@ html[data-disclaimer="pending"] body { overflow: hidden; }
      Phone numbers and email are in the Contact call buttons and the footer. */
   .topbar { font-size: 12px; }
   .topbar .container { height: auto; padding-block: 10px; flex-direction: column; align-items: stretch; gap: 10px; }
-  .topbar__actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-  .topbar__actions a { min-height: 44px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(201, 162, 74, .55); color: var(--ivory); font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+  .topbar__actions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+  .topbar__actions a { min-height: 44px; display: flex; align-items: center; justify-content: center; gap: 6px; border: 1px solid rgba(201, 162, 74, .55); color: var(--ivory); font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
   .topbar__actions a:first-child { background: var(--maroon); border-color: var(--maroon); }
   .topbar__group { flex-direction: column; gap: 2px; white-space: normal; text-align: center; }
   .topbar__group + .topbar__group { display: none; }
@@ -454,6 +457,7 @@ html[data-disclaimer="pending"] body { overflow: hidden; }
   .form { grid-column: auto; padding: 24px 20px; gap: 18px; }
   .form__row { grid-template-columns: minmax(0, 1fr); gap: 18px; }
   .field input, .field select, .field textarea { width: 100%; min-width: 0; }
+  .form__foot { flex-direction: column-reverse; align-items: stretch; }
   .form__foot .btn { width: 100%; }
 
   .footer { padding: 48px 0 36px; }

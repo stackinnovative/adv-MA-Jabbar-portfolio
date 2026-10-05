@@ -38,6 +38,8 @@ export type SiteSettings = {
   /** Malayalam tagline shown in the top bar and footer. */
   taglineMl: string;
   seo: { title: string; description: string; ogDescription: string; ogImage: string };
+  /** WhatsApp chat: number in international format without "+" (e.g. 919447009556) and the pre-filled message. */
+  whatsapp: { number: string; message: string };
   /** Phone numbers, in display order (first = main number). */
   phones: { href: string; display: string }[];
   /** Public emails, in display order (first = main number's counterpart). */

@@ -25,6 +25,7 @@ export const siteContent: SiteContent = {
         'Advocate, High Court of Kerala. Certified mediator (IMI, IICA) and empanelled arbitrator (NSE, BSE). Chambers at Ernakulam and Punalur.',
       ogImage: '/images/og.jpg',
     },
+    whatsapp: { number: '919447009556', message: 'Hello, I would like to make an enquiry.' },
     phones: [
       { href: 'tel:+919447009556', display: '+91 94470 09556' },
       { href: 'tel:+917907694622', display: '+91 79076 94622' },

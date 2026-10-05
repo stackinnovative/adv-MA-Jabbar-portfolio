@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { WhatsAppIcon } from './WhatsAppLink';
 
 type Props = {
   heading: string;
@@ -13,6 +14,8 @@ type Props = {
   endpoint: string;
   /** Inbox for enquiries; used for the email-app fallback if sending fails. */
   enquiryEmail: string;
+  /** wa.me link for the "Chat on WhatsApp" button. */
+  whatsappUrl: string;
 };
 
 /** Opens the visitor's email app with the enquiry pre-filled. */
@@ -30,7 +33,7 @@ function openEmailDraft(to: string, data: FormData) {
   window.location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
-export function EnquiryForm({ heading, matterOptions, consentText, endpoint, enquiryEmail }: Props) {
+export function EnquiryForm({ heading, matterOptions, consentText, endpoint, enquiryEmail, whatsappUrl }: Props) {
   const [status, setStatus] = useState('');
   const [sending, setSending] = useState(false);
   const startedAt = useRef(0);
@@ -135,6 +138,10 @@ export function EnquiryForm({ heading, matterOptions, consentText, endpoint, enq
         {status}
       </p>
       <div className="form__foot">
+        <a className="btn btn--whatsapp" href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+          <WhatsAppIcon size={18} />
+          Chat on WhatsApp
+        </a>
         <button className="btn btn--primary" type="submit" disabled={sending}>
           {sending ? 'Sending…' : 'Send enquiry'}
         </button>
