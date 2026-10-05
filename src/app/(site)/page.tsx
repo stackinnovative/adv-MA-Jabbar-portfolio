@@ -12,26 +12,12 @@ import { Process } from '@/components/sections/Process';
 import { Quote } from '@/components/sections/Quote';
 import { Topbar } from '@/components/sections/Topbar';
 import { getSiteContent } from '@/lib/content';
+import { buildStructuredData } from '@/lib/structured-data';
 
 export default async function HomePage() {
-  const { settings, home, disclaimer } = await getSiteContent();
-
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: settings.fullName.replace(/^Adv\.\s*/, ''),
-    alternateName: settings.name,
-    jobTitle: 'Advocate, Mediator & Arbitrator',
-    telephone: settings.phones.map((p) => p.href.replace('tel:', '')),
-    email: settings.emails,
-    alumniOf: [
-      { '@type': 'CollegeOrUniversity', name: 'NALSAR University of Law, Hyderabad' },
-      { '@type': 'CollegeOrUniversity', name: 'Mahatma Gandhi University, Kottayam' },
-    ],
-    memberOf: { '@type': 'Organization', name: 'Kerala High Court Advocates’ Association' },
-    knowsLanguage: ['ml', 'en', 'hi'],
-    address: { '@type': 'PostalAddress', addressLocality: 'Ernakulam', postalCode: '682031', addressRegion: 'Kerala', addressCountry: 'IN' },
-  };
+  const content = await getSiteContent();
+  const { settings, home, disclaimer } = content;
+  const jsonLd = buildStructuredData(content);
 
   return (
     <>

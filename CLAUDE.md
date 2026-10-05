@@ -88,6 +88,14 @@ Indian advocates may not advertise or solicit work. The site may only state fact
 - Privacy policy wording — draft written, needs the advocate's review
 - `formEndpoint` (Formspree / Web3Forms / own API route)
 
+## SEO (in place)
+- Target searches: advocate / mediator / arbitrator in Kerala, High Court of Kerala advocate, Punalur / Ernakulam advocate,
+  and his names (Adv. M.A. Jabbar, Abdul Jabbarudeen M.). Wording must stay factual — never "best"/"top" (Rule 36).
+- Title/description: `settings.seo` (CMS: Site settings → Name & SEO). `src/lib/structured-data.ts` builds schema.org
+  Person + one LegalService per chamber (address, areas served) + WebSite from settings — no ratings/reviews.
+- `src/app/robots.ts`, `src/app/sitemap.ts` (excludes /studio, /api), canonical via `src/lib/site-url.ts`
+  (`NEXT_PUBLIC_SITE_URL`, default https://www.advmajabbar.com), icons `src/app/(site)/icon.svg` + `apple-icon.png`.
+
 ## Suggested next tasks
 1. Finish Sanity setup (steps above) and invite the client.
 2. Enquiry email: the form posts to `src/app/api/enquiry/route.ts`, which sends via **Resend** to
@@ -96,5 +104,6 @@ Indian advocates may not advertise or solicit work. The site may only state fact
    minimum. If sending isn't configured or fails, the form opens the visitor's email app instead.
    Public emails shown on the site: `settings.emails` (vu3jbr@gmail.com, then majabbaradv@gmail.com).
 3. Add a floating WhatsApp button (`https://wa.me/919447009556`) on mobile.
-4. Add `src/app/icon.svg` (scales icon from the header), `robots.ts`, `sitemap.ts`.
+4. Off-site SEO: verify the domain in Google Search Console (TXT record at Hostinger) and submit
+   `/sitemap.xml`; create a Google Business Profile for each chamber (Ernakulam, Punalur). Do not solicit reviews.
 5. Lighthouse pass: aim for 95+ on performance and accessibility.

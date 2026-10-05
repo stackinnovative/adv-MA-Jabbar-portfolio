@@ -4,7 +4,7 @@ import { getSiteContent } from '@/lib/content';
 
 export async function generateMetadata(): Promise<Metadata> {
   const { settings, privacy } = await getSiteContent();
-  return { title: `${privacy.title} — ${settings.name}`, robots: { index: false } };
+  return { title: `${privacy.title} — ${settings.name}`, robots: { index: false }, alternates: { canonical: '/privacy' } };
 }
 
 export default async function PrivacyPage() {

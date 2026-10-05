@@ -18,11 +18,13 @@ export const siteContent: SiteContent = {
     role: 'Advocate · Mediator · Arbitrator · Social Activist',
     taglineMl: 'നീതി · സംവാദം · സമവായം',
     seo: {
-      title: 'Adv. M.A. Jabbar — Advocate, Mediator & Arbitrator | High Court of Kerala',
+      // Search: lead with what people type (advocate / mediator / arbitrator + Kerala, High Court,
+      // Punalur, his names). Facts only — no "best"/"top" (BCI Rule 36).
+      title: 'Adv. M.A. Jabbar — Advocate, Mediator & Arbitrator in Kerala | High Court · Ernakulam · Punalur',
       description:
-        'Adv. M.A. Jabbar (Abdul Jabbarudeen M.) — advocate at the High Court of Kerala, IMI and IICA certified mediator, corporate mediator with the Ministry of Corporate Affairs - Govt Of India, and empanelled arbitrator with NSE and BSE. Chambers at Ernakulam and Punalur.',
+        'Adv. M.A. Jabbar (Abdul Jabbarudeen M.), advocate at the High Court of Kerala, with chambers at Ernakulam and Punalur, Kollam. Certified mediator (IMI, IICA), corporate mediator with the Ministry of Corporate Affairs (Government of India), and arbitrator empanelled with NSE and BSE.',
       ogDescription:
-        'Advocate, High Court of Kerala. Certified mediator (IMI, IICA) and empanelled arbitrator (NSE, BSE). Chambers at Ernakulam and Punalur.',
+        'Advocate, mediator and arbitrator in Kerala — High Court of Kerala. Chambers at Ernakulam and Punalur, Kollam.',
       ogImage: '/images/og.jpg',
     },
     whatsapp: { number: '919447009556', message: 'Hello, I would like to make an enquiry.' },

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Noto_Serif_Malayalam, Playfair_Display, Source_Sans_3 } from 'next/font/google';
 import { DISCLAIMER_KEY, SHOW_ENTRY_DISCLAIMER } from '@/lib/disclaimer';
 import { getSiteContent } from '@/lib/content';
+import { SITE_URL } from '@/lib/site-url';
 import './globals.css';
 
 const playfair = Playfair_Display({
@@ -27,13 +28,17 @@ const malayalam = Noto_Serif_Malayalam({
 export async function generateMetadata(): Promise<Metadata> {
   const { settings } = await getSiteContent();
   return {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'),
+    metadataBase: new URL(SITE_URL),
     title: settings.seo.title,
     description: settings.seo.description,
+    alternates: { canonical: '/' },
     openGraph: {
-      title: `${settings.name} — Advocate, Mediator & Arbitrator`,
+      title: `${settings.name} — Advocate, Mediator & Arbitrator in Kerala`,
       description: settings.seo.ogDescription,
       images: [settings.seo.ogImage],
+      url: '/',
+      siteName: settings.name,
+      locale: 'en_IN',
       type: 'website',
     },
   };
@@ -48,7 +53,7 @@ const disclaimerScript = `try{document.documentElement.dataset.disclaimer=localS
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
-      lang="en"
+      lang="en-IN"
       className={`${playfair.variable} ${sourceSans.variable} ${malayalam.variable}`}
       suppressHydrationWarning
     >
